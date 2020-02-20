@@ -1,11 +1,49 @@
 ﻿html {
     height: 100%;
 }
-
+.a{
+    color:black !important;
+}
 body {
     height: 100%;
     margin: 0;
-    background-image: linear-gradient(#55c2ed,#95d6f0,#cce2eb);
+    background-image: linear-gradient(#4377a8,#55c2ed,#cce2eb);
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+.LoginSection{
+    padding-top: 50px;
+    padding-bottom:50px;
+    text-align: center;
+}
+.navpadding {
+    padding-left:200px !important;
+    padding-right:200px !important;
+    text-align: right;
+    display:block !important;
+}
+.loginbtn{
+    background: #55c2ed;
+    height: 30px !important;
+    font-size:small;
+    text-align:center;
+}
+.loginbtndiv{
+    padding-left:440px !important;
+}
+.wordsPadding{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.ImageSection {
+    width:100%;
+    height: 250px;
+}
+.inputSection {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.ImageRound {
+    border-radius: 50%;
 }

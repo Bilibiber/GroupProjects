@@ -13,14 +13,12 @@ namespace JooleBusinessLogicLayer
     {
         public string CustomerLogin(string Email, string Password)
         {
-            return "Worked";
+            string pass = "Pass";
+            MyConnectionString DB = new MyConnectionString();
+           
+            return pass;
         }
 
-        public List<CustomerDominModel> GetAllCustomer()
-        {
-            MyConnectionString dbcontext = new MyConnectionString();
-            List<CustomerDominModel> CustomerList = dbcontext.tblUsers.Select(m=>new CustomerDominModel {UserEmail=m.UserEmail, UserPassword=m.UserPassword, UserID=m.UserID, UserFirstName=m.UserFirstName,UserLastName=m.UserLastName}).ToList();
-            return CustomerList;
-        }
+      
     }
 }

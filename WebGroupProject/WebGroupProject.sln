@@ -7,9 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGroupProject", "WebGroup
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleBusinessLogicLayer", "..\JooleBusinessLogicLayer\JooleBusinessLogicLayer.csproj", "{4AC14E68-D432-4059-8CC3-94CCD10F2C15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleDomainLayer", "..\JooleDomainLayer\JooleDomainLayer.csproj", "{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JooleDomainLayer", "..\JooleDomainLayer\JooleDomainLayer.csproj", "{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleDAL", "..\JooleDAL\JooleDAL.csproj", "{64F71CEE-A69F-4867-B10B-3396600F7E02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C601C31-557E-49CB-A4B4-689C4C208C4F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

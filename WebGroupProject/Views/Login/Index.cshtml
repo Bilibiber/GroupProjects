@@ -2,10 +2,34 @@
 @{
     ViewBag.Title = "Index";
 }
-<h1>@ViewBag.test</h1>
-<h2>pullED</h2>
+<div class="navbar navpadding">
+    <a href="#" data-toggle="modal" data-target="#signup_modal" class="font-weight-bold a">Sign Up </a>
+</div>
 <div class="LoginSection">
-    <a href="#" data-toggle="modal" data-target="#signup_modal">Sign Up </a>
+    <form class="text-center" action="Login" method="post">
+        <div>
+            <img src="~/Content/Imgs/logo demo.png" alt="Joole Logo" width="400" height="200" />
+        </div>
+        <h3 class="wordsPadding">Building Product Selection Platform</h3>
+        <div class="input-group justify-content-center">
+            <input type="text" class="form-control" id="Email" name="Email" placeholder="Username or Password" />
+            @*<div class="input-group-prepend">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/human-head.png" alt="Head" width="20" height="20">
+                </div>*@
+        </div>
+        <br />
+        <div class="input-group justify-content-center">
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" />
+            @*<div class="input-group-append">
+                    <img src="https://img.icons8.com/android/24/000000/lock.png" alt="Lock Icon" width="20" height="20">
+                </div>*@
+        </div>
+        <br />
+        <div class="input-group justify-content-center loginbtndiv">
+            <input type="button" class="btn-sm loginbtn btn-primary" value="Login" id="Login" name="Login" />
+        </div>
+
+    </form>
 </div>
 <div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="signup_modal_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -17,19 +41,40 @@
                 </button>
             </div>
             <div class="modal-body">
+                <form action="SignUp" method="post">
+                    <div class="ImageSection">
+                        <p>Image Preview</p>
+                        <img src="~/Content/Imgs/download.png" class="ImageRound" alt="Your Image" width="100" height="100"/>
+                        <p>Your Profile Picture</p>
+                        <br />
+                        <input type="file" id="Upload" name="Upload" />
+                    </div>
+                    <div class="inputSection">
+                        <div class="input-group">
+                            <input type="text" id="SignUpUserName" name="SignUpUserName" class="form-control" placeholder="User Name" />
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <input type="text" id="SignUpEmail" name="SignUpEmail" class="form-control" placeholder="Email Address" />
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <input type="password" id="SignUpPassword" name="SignUpPassword" class="form-control" placeholder="Password" />
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer mx-auto">
                 <div class="form-excerpts">
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled float-right">
                         <li>
-                            Already a member ?<asp:LinkButton ID="SignInLinkButton" runat="server" data-toggle="modal" data-target="#login_modal" data-dismiss="modal" OnClientClick="return false" ForeColor="CornflowerBlue"> Sign In</asp:LinkButton>
+                            <input type="button" id="SignUp" name="SignUp" value="SignUp" class="btn-sm btn-primary" />
                         </li>
                     </ul>
-
-                    <div class="social-login">
-                        <span>Or Sign Up With: </span>
-                        <p>
-                            <asp:ImageButton ID="ImageButton2" runat="server" CssClass="btn" ImageUrl="~/img/btn_google_signin_dark_focus_web.png" OnClick="GmailSignIn_Click" UseSubmitBehavior="False" />
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>

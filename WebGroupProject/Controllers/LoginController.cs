@@ -17,5 +17,13 @@ namespace WebGroupProject.Controllers
             ViewBag.test = customerLogin.CustomerLogin("guofx@dukes.jmu.edu", "123");
             return View();
         }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult SignUp()
+        {
+            return View();
+        }
     }
 }

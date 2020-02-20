@@ -10,6 +10,5 @@ namespace JooleBusinessLogicLayer.Interface
     public interface IJooleCustomerLogin
     {
         string CustomerLogin(string Email, string Password);
-        List<CustomerDominModel> GetAllCustomer();
     }
 }
