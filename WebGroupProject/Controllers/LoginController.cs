@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JooleBusinessLogicLayer;
+using JooleBusinessLogicLayer.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,8 @@ namespace WebGroupProject.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            IJooleCustomerLogin customerLogin = new JooleCustomerLogin();
+            ViewBag.test = customerLogin.CustomerLogin("guofx@dukes.jmu.edu", "123");
             return View();
         }
     }
