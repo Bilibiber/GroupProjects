@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css"
+          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <style type='text/css'>
+
+        .header {
+            text-align: center;
+            background-image: linear-gradient(#5592BA, #E7E0DE);
+            padding: 10px;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            background-color: #E7E0DE;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #E7E0DE;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 7px;
+            padding-bottom: : 1px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: #569DA1;
+        }
+    </style>
+    <link href="~/Content/CustomCSS.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="header">
+        <img src="~/Content/Imgs/joole.png" style="float: left; padding-top: 0px; padding-bottom: 0px;" width="120" height="80">
+        <form>
+            <input type="text" name="Search" placeholder="Search...">
+            <button class="button" type="Submit">Search</button>
+        </form>
+    </div>
+
+    <div class="topnav">
+        <a href="#">Product Summary</a>
+        <a href="#">Product Details</a>
+        <a href="#">Product Documentation</a>
+        <a href="#">Contact</a>
+    </div>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
