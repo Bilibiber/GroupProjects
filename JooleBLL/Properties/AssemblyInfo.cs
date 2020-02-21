@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("JooleBusinessLogicLayer")]
+[assembly: AssemblyTitle("JooleBLL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("JooleBusinessLogicLayer")]
+[assembly: AssemblyProduct("JooleBLL")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4ac14e68-d432-4059-8cc3-94ccd10f2c15")]
+[assembly: Guid("aaec10f1-097b-49df-af38-289e29845870")]
 
 // Version information for an assembly consists of the following four values:
 //

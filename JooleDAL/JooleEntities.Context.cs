@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JooleDataAccessLayer
+namespace JooleDAL
 {
     using System;
     using System.Data.Entity;

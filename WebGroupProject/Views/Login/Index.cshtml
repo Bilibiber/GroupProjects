@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "Index";
 }
+@ViewBag.Name
+@if (ViewBag.CustomerList != null) {
+
+    foreach (var item in ViewBag.CustomerList)
+    { 
+        <p>@item</p>
+    }
+}
 <div class="navbar navpadding">
     <a href="#" data-toggle="modal" data-target="#signup_modal" class="font-weight-bold a">Sign Up </a>
 </div>
@@ -44,7 +52,7 @@
                 <form action="SignUp" method="post">
                     <div class="ImageSection">
                         <p>Image Preview</p>
-                        <img src="~/Content/Imgs/download.png" class="ImageRound" alt="Your Image" width="100" height="100"/>
+                        <img src="~/Content/Imgs/download.png" class="ImageRound" alt="Your Image" width="100" height="100" />
                         <p>Your Profile Picture</p>
                         <br />
                         <input type="file" id="Upload" name="Upload" />

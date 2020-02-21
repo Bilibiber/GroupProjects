@@ -293,13 +293,13 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JooleBusinessLogicLayer\JooleBusinessLogicLayer.csproj">
-      <Project>{4ac14e68-d432-4059-8cc3-94ccd10f2c15}</Project>
-      <Name>JooleBusinessLogicLayer</Name>
+    <ProjectReference Include="..\JooleBLL\JooleBLL.csproj">
+      <Project>{aaec10f1-097b-49df-af38-289e29845870}</Project>
+      <Name>JooleBLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JooleDomainLayer\JooleDomainLayer.csproj">
-      <Project>{d5f65986-e083-4f16-b1ae-65ebfb3cf58b}</Project>
-      <Name>JooleDomainLayer</Name>
+    <ProjectReference Include="..\JooleDomain\JooleDomain.csproj">
+      <Project>{23856175-eafb-4080-8dbf-0a466d5ab2e1}</Project>
+      <Name>JooleDomain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

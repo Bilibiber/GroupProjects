@@ -5,16 +5,11 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGroupProject", "WebGroupProject.csproj", "{6A414AA5-AD73-48A7-BE87-3AE1D6A49069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleBusinessLogicLayer", "..\JooleBusinessLogicLayer\JooleBusinessLogicLayer.csproj", "{4AC14E68-D432-4059-8CC3-94CCD10F2C15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleBLL", "..\JooleBLL\JooleBLL.csproj", "{AAEC10F1-097B-49DF-AF38-289E29845870}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JooleDomainLayer", "..\JooleDomainLayer\JooleDomainLayer.csproj", "{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleDomain", "..\JooleDomain\JooleDomain.csproj", "{23856175-EAFB-4080-8DBF-0A466D5AB2E1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C601C31-557E-49CB-A4B4-689C4C208C4F}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleDataAccessLayer", "..\JooleDataAccessLayer\JooleDataAccessLayer.csproj", "{61D0B55D-1977-4F64-8B28-2201DF4197A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JooleDAL", "..\JooleDAL\JooleDAL.csproj", "{678D831A-34F9-4DD0-B774-BA07865D128D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,18 +21,18 @@ Global
 		{6A414AA5-AD73-48A7-BE87-3AE1D6A49069}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A414AA5-AD73-48A7-BE87-3AE1D6A49069}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A414AA5-AD73-48A7-BE87-3AE1D6A49069}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AC14E68-D432-4059-8CC3-94CCD10F2C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AC14E68-D432-4059-8CC3-94CCD10F2C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AC14E68-D432-4059-8CC3-94CCD10F2C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AC14E68-D432-4059-8CC3-94CCD10F2C15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5F65986-E083-4F16-B1AE-65EBFB3CF58B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61D0B55D-1977-4F64-8B28-2201DF4197A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61D0B55D-1977-4F64-8B28-2201DF4197A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61D0B55D-1977-4F64-8B28-2201DF4197A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61D0B55D-1977-4F64-8B28-2201DF4197A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAEC10F1-097B-49DF-AF38-289E29845870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEC10F1-097B-49DF-AF38-289E29845870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEC10F1-097B-49DF-AF38-289E29845870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEC10F1-097B-49DF-AF38-289E29845870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23856175-EAFB-4080-8DBF-0A466D5AB2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23856175-EAFB-4080-8DBF-0A466D5AB2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23856175-EAFB-4080-8DBF-0A466D5AB2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23856175-EAFB-4080-8DBF-0A466D5AB2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678D831A-34F9-4DD0-B774-BA07865D128D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678D831A-34F9-4DD0-B774-BA07865D128D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678D831A-34F9-4DD0-B774-BA07865D128D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678D831A-34F9-4DD0-B774-BA07865D128D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
