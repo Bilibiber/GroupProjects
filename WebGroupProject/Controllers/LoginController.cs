@@ -15,6 +15,7 @@ namespace WebGroupProject.Controllers
         {
             IJooleCustomerLogin customerLogin = new JooleCustomerLogin();
             ViewBag.test = customerLogin.CustomerLogin("guofx@dukes.jmu.edu", "123");
+
             return View();
         }
         public ActionResult Login()

@@ -70,10 +70,6 @@
     <Analyzer Include="..\WebGroupProject\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JooleDAL\JooleDAL.csproj">
-      <Project>{64f71cee-a69f-4867-b10b-3396600f7e02}</Project>
-      <Name>JooleDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JooleDomainLayer\JooleDomainLayer.csproj">
       <Project>{d5f65986-e083-4f16-b1ae-65ebfb3cf58b}</Project>
       <Name>JooleDomainLayer</Name>
