@@ -20,12 +20,32 @@ namespace WebGroupProject.Controllers
         {
             return View();
         }
-        public ActionResult Login()
+        public ActionResult Login(string Email, string Password)
         {
-            string DeHashPassword = "";
+            string HashedPassword = "";
             con.Open();
-
-            return View();
+            SqlCommand sql = new SqlCommand();
+            sql.Connection = con;
+            sql.CommandText = "Select UserPassword from tblUser where UserEmail=@Email";
+            sql.Parameters.AddWithValue("@Email", Email);
+            SqlDataReader reader;
+            reader = sql.ExecuteReader();
+            if (reader.Read()) 
+            {
+                HashedPassword = reader.GetString(0);
+                if (PasswordHash.ValidatePassword(Password, HashedPassword))
+                {
+                    return View("Search");
+                }
+                else
+                {
+                    return View("LoginError");
+                }
+            }
+            else
+            {
+                return View("LoginError");
+            }
         }
         [HttpPost]
         public ActionResult SignUp(string SignUpUserName, string SignUpEmail, string SignUpPassword)
