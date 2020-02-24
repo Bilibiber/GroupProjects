@@ -9,7 +9,7 @@ namespace WebGroupProject.Controllers
 {
     public class SearchController : Controller
     {
-        NewDatabase DataBase = new NewDatabase();
+        NewDataBase DataBase = new NewDataBase();
         // GET: Search
         public ActionResult Search()
         {

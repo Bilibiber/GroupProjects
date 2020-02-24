@@ -31,7 +31,9 @@ namespace JooleDAL
         public string Use_Type { get; set; }
         public string Application { get; set; }
         public string Mounting_Location { get; set; }
+        public Nullable<int> SubCategoryID { get; set; }
     
+        public virtual tblSubCategory tblSubCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblProductsDetal> tblProductsDetals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -36,6 +36,7 @@
           <Property Name="Use_Type" Type="nvarchar" MaxLength="50" />
           <Property Name="Application" Type="nvarchar" MaxLength="100" />
           <Property Name="Mounting_Location" Type="nvarchar" MaxLength="150" />
+          <Property Name="SubCategoryID" Type="int" />
         </EntityType>
         <EntityType Name="tblProductsDetals">
           <Key>
@@ -81,7 +82,6 @@
           <Property Name="SubCategoryID" Type="int" Nullable="false" />
           <Property Name="SubCategoryName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
-          <Property Name="ProductID" Type="int" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -93,6 +93,18 @@
           <Property Name="UserFirstName" Type="varchar" MaxLength="30" />
           <Property Name="UserLastName" Type="varchar" MaxLength="30" />
         </EntityType>
+        <Association Name="FK_tblProducts_tblSubCategory">
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="0..1" />
+          <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="tblProducts">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblProductsDetals_tblProducts">
           <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="1" />
           <End Role="tblProductsDetals" Type="Self.tblProductsDetals" Multiplicity="*" />
@@ -125,6 +137,10 @@
           <EntitySet Name="tblProductSeriesInfo" EntityType="Self.tblProductSeriesInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSubCategory" EntityType="Self.tblSubCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblProducts_tblSubCategory" Association="Self.FK_tblProducts_tblSubCategory">
+            <End Role="tblSubCategory" EntitySet="tblSubCategory" />
+            <End Role="tblProducts" EntitySet="tblProducts" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblProductsDetals_tblProducts" Association="Self.FK_tblProductsDetals_tblProducts">
             <End Role="tblProducts" EntitySet="tblProducts" />
             <End Role="tblProductsDetals" EntitySet="tblProductsDetals" />
@@ -170,6 +186,8 @@
           <Property Name="Use_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Application" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Mounting_Location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <NavigationProperty Name="tblSubCategory" Relationship="Self.FK_tblProducts_tblSubCategory" FromRole="tblProducts" ToRole="tblSubCategory" />
           <NavigationProperty Name="tblProductsDetals" Relationship="Self.FK_tblProductsDetals_tblProducts" FromRole="tblProducts" ToRole="tblProductsDetals" />
           <NavigationProperty Name="tblProductSeriesInfoes" Relationship="Self.FK_tblProductSeriesInfo_tblProducts" FromRole="tblProducts" ToRole="tblProductSeriesInfo" />
         </EntityType>
@@ -219,7 +237,7 @@
           <Property Name="SubCategoryID" Type="Int32" Nullable="false" />
           <Property Name="SubCategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
-          <Property Name="ProductID" Type="Int32" />
+          <NavigationProperty Name="tblProducts" Relationship="Self.FK_tblProducts_tblSubCategory" FromRole="tblSubCategory" ToRole="tblProducts" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -231,6 +249,18 @@
           <Property Name="UserFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="UserLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
+        <Association Name="FK_tblProducts_tblSubCategory">
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="0..1" />
+          <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubCategory">
+              <PropertyRef Name="SubCategoryID" />
+            </Principal>
+            <Dependent Role="tblProducts">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblProductsDetals_tblProducts">
           <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="1" />
           <End Role="tblProductsDetals" Type="Self.tblProductsDetal" Multiplicity="*" />
@@ -255,7 +285,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NewDatabase" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NewDataBase" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="tblCategories" EntityType="Self.tblCategory" />
           <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
@@ -263,6 +293,10 @@
           <EntitySet Name="tblProductSeriesInfoes" EntityType="Self.tblProductSeriesInfo" />
           <EntitySet Name="tblSubCategories" EntityType="Self.tblSubCategory" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <AssociationSet Name="FK_tblProducts_tblSubCategory" Association="Self.FK_tblProducts_tblSubCategory">
+            <End Role="tblSubCategory" EntitySet="tblSubCategories" />
+            <End Role="tblProducts" EntitySet="tblProducts" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblProductsDetals_tblProducts" Association="Self.FK_tblProductsDetals_tblProducts">
             <End Role="tblProducts" EntitySet="tblProducts" />
             <End Role="tblProductsDetals" EntitySet="tblProductsDetals" />
@@ -277,7 +311,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TeamAlphaGroupProjectsModelStoreContainer" CdmEntityContainer="NewDatabase">
+        <EntityContainerMapping StorageEntityContainer="TeamAlphaGroupProjectsModelStoreContainer" CdmEntityContainer="NewDataBase">
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -310,6 +344,7 @@
                 <ScalarProperty Name="Use_Type" ColumnName="Use_Type" />
                 <ScalarProperty Name="Application" ColumnName="Application" />
                 <ScalarProperty Name="Mounting_Location" ColumnName="Mounting_Location" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -358,7 +393,6 @@
                 <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
                 <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,7 +10,6 @@
         </div>
         <h3 class="wordsPadding">Building Product Selection Platform</h3>
         <div class="input-group mb-3 justify-content-center">
-            
             <div class="input-group-prepend">
                 @if (ViewBag.CategoryListName != null)
                 {
@@ -19,7 +18,7 @@
             </div>
             @Html.DropDownListFor(model => model.SubCategoryID, new SelectList(" "), "Search...", new { @class = "form-control bold" })
             <div class="input-group-append">
-                <button class="btns form-control-sm" formmethod="post" value="submit"><i class="material-icons">search</i></button>
+                <button id="SearchBtn" name="SearchBtn" class="btns form-control-sm" formaction="SearchGo" formmethod="post" value="submit"><i class="material-icons">search</i></button>
             </div>
         </div>
     </div>
@@ -27,6 +26,8 @@
 <script>
     $(document).ready(function () {
         $("#CategoryID").change(function () {
+            var SelectedID = $("#CategoryID Option:Selected").val();
+            sessionStorage.setItem("CategoryID", SelectedID);
             $.get("/Search/GetSubCategory", { CategoryID: $("#CategoryID").val() }, function (data) {
                 $("#SubCategoryID").empty();
                 $.each(data, function (index, row) {
@@ -34,5 +35,9 @@
                 });
             });
         })
+        $("#SubCategoryID").change(function () {
+            var SelectedSubCategoryID = $("#SubCategoryID Option:Selected").val();
+             sessionStorage.setItem("SubCategoryID", SelectedSubCategoryID);
+        });
     });
 </script>
