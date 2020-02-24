@@ -13,10 +13,10 @@ namespace JooleDAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TeamAlphaGroupProjectsEntities : DbContext
+    public partial class NewDatabase : DbContext
     {
-        public TeamAlphaGroupProjectsEntities()
-            : base("name=TeamAlphaGroupProjectsEntities")
+        public NewDatabase()
+            : base("name=NewDatabase")
         {
         }
     

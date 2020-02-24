@@ -22,7 +22,6 @@ namespace JooleDAL
         }
     
         public int ProductID { get; set; }
-        public int SubCategoryID { get; set; }
         public string Manufacturer { get; set; }
         public string ProductName { get; set; }
         public string Series { get; set; }
@@ -33,7 +32,6 @@ namespace JooleDAL
         public string Application { get; set; }
         public string Mounting_Location { get; set; }
     
-        public virtual tblSubCategory tblSubCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblProductsDetal> tblProductsDetals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

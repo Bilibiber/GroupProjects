@@ -14,17 +14,7 @@ namespace JooleDAL
     
     public partial class tblCategory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblCategory()
-        {
-            this.tblSubCategories = new HashSet<tblSubCategory>();
-        }
-    
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
-        public int ProductsID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblSubCategory> tblSubCategories { get; set; }
     }
 }

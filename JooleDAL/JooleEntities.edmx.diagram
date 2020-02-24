@@ -4,16 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eeb3a7e62a7240319cfa27842d273196" Name="Diagram1">
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblCategory" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProduct" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProductsDetal" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProductSeriesInfo" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblSubCategory" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblUser" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblSubCategory_tblCategories" ManuallyRouted="false" />
-        <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblProducts_tblSubCategory" ManuallyRouted="false" />
+      <Diagram DiagramId="ead9dca1a766438b9a18380c613dbad0" Name="Diagram1">
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblCategory" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProduct" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProductsDetal" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProductSeriesInfo" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblSubCategory" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblUser" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblProductsDetals_tblProducts" ManuallyRouted="false" />
         <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblProductSeriesInfo_tblProducts" ManuallyRouted="false" />
       </Diagram>

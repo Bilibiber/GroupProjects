@@ -89,32 +89,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="JooleEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>JooleEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="JooleEntities.edmx.diagram">
       <DependentUpon>JooleEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="JooleEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>JooleEntities.Context.cs</LastGenOutput>
       <DependentUpon>JooleEntities.edmx</DependentUpon>
+      <LastGenOutput>JooleEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="JooleEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JooleEntities.edmx</DependentUpon>
       <LastGenOutput>JooleEntities.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

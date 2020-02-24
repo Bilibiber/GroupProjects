@@ -131,9 +131,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryDropdownViewModel.cs" />
     <Compile Include="Models\PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,6 +149,7 @@
     <Content Include="Content\CustomCSS.css" />
     <Content Include="Content\Imgs\download.png" />
     <Content Include="Content\Imgs\joole.png" />
+    <Content Include="Content\Imgs\joole4.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -280,9 +283,9 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Login\SignUpError.cshtml" />
     <Content Include="Views\Login\LoginError.cshtml" />
-    <Content Include="Views\Login\Search.cshtml" />
-    <Content Include="Views\Shared\Products.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Products\ProductResult.cshtml" />
+    <Content Include="Views\Shared\Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +305,10 @@
     <ProjectReference Include="..\JooleBLL\JooleBLL.csproj">
       <Project>{aaec10f1-097b-49df-af38-289e29845870}</Project>
       <Name>JooleBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JooleDAL\JooleDAL.csproj">
+      <Project>{678D831A-34F9-4DD0-B774-BA07865D128D}</Project>
+      <Name>JooleDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\JooleDomain\JooleDomain.csproj">
       <Project>{23856175-eafb-4080-8dbf-0a466d5ab2e1}</Project>

@@ -35,7 +35,7 @@ namespace WebGroupProject.Controllers
                 HashedPassword = reader.GetString(0);
                 if (PasswordHash.ValidatePassword(Password, HashedPassword))
                 {
-                    return View("Search");
+                    return RedirectToAction("Search", "Search");
                 }
                 else
                 {

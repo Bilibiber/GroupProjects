@@ -3,11 +3,30 @@
 <head>
     <link rel="stylesheet" type="text/css"
           href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <link href="~/Content/CustomCSS.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type='text/css'>
+        * {
+            font-size: 16px;
+        }
 
         .header {
             text-align: center;
             background-image: linear-gradient(#5592BA, #E7E0DE);
+            //background-image: linear-gradient(#4377a8,#55c2ed,#cce2eb);
             padding: 10px;
         }
 
@@ -40,15 +59,29 @@
             background-color: #569DA1;
         }
     </style>
-    <link href="~/Content/CustomCSS.css" rel="stylesheet" />
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <div class="header">
-        <img src="~/Content/Imgs/joole.png" style="float: left; padding-top: 0px; padding-bottom: 0px;" width="120" height="80">
+        <img src="~/Content/Imgs/joole4.png" style="float: left; padding-top: 0px; padding-bottom: 0px;" width="70" height="40">
         <form>
-            <input type="text" name="Search" placeholder="Search...">
+
+            <div class="dropdown" style="display: inline;">
+
+                <!--Trigger-->
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    Categories
+                </button>
+
+                <!--Menu-->
+                <ul class="dropdown-menu dropdown-primary" aria-labelled-by="dropdownMenu1">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+            <input id ="Search" style="width: 300px; border-radius: 10px;" type="text" name="Search" placeholder="Search...">
             <button class="button" type="Submit">Search</button>
         </form>
     </div>
