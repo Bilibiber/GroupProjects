@@ -1,15 +1,28 @@
-﻿@model WebGroupProject.Models.CategoryDropdownViewModel
-@{
-    ViewBag.Title = "Search";
+﻿@{
+    Layout = null;
 }
+@model WebGroupProject.Models.CategoryDropdownViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Product_Layout</title>
+    <link href="~/Content/RayStyle.css" rel="stylesheet" />
+    <link href="~/Content/CustomCSS.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <div class="LoginSection">
-        <div>
-            <img src="~/Content/Imgs/joole.png" alt="Joole Logo" width="400" height="200" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navigation">
+        <div class="logo-img">
+            <a href="/Login/Index/"><img src="~/Content/Imgs/joole.png" alt="Joole" width="250" height="150"></a>
         </div>
-        <h3 class="wordsPadding">Building Product Selection Platform</h3>
-        <div class="input-group mb-3 justify-content-center">
+        <div class="input-group mb-3 justify-content-center navblock">
             <div class="input-group-prepend">
                 @if (ViewBag.CategoryListName != null)
                 {
@@ -18,12 +31,19 @@
             </div>
             @Html.DropDownListFor(model => model.SubCategoryID, new SelectList(" "), "Search...", new { @class = "form-control bold" })
             <div class="input-group-append">
-                <form action="SearchGo" method="post">
-                    <button id="SearchBtn" name="SearchBtn" class="btns form-control" formaction="SearchGo" formmethod="post" value="SearchGo"><i class="material-icons">search</i></button>
+                <form action="SearchGoGo" method="post">
+                    <button id="SearchBtn" name="SearchBtn" class="btns form-control" formaction="SearchGoGo" formmethod="post" value="submit"><i class="material-icons">search</i></button>
                 </form>
             </div>
         </div>
     </div>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
     $(document).ready(function () {
@@ -39,7 +59,7 @@
         })
         $("#SubCategoryID").change(function () {
             var SelectedSubCategoryID = $("#SubCategoryID Option:Selected").val();
-             sessionStorage.setItem("SubCategoryID", SelectedSubCategoryID);
+            sessionStorage.setItem("SubCategoryID", SelectedSubCategoryID);
         });
     });
 </script>

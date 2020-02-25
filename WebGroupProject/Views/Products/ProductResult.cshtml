@@ -1,8 +1,118 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ProductResult";
-    Layout = "~/Views/Shared/Products.cshtml";
+    Layout = "~/Views/Shared/Product_Layout.cshtml";
 }
+<div class="left">
+    <ul class="list-group">
+        <li class="list-group-item">
+            Search:
+            <input type="button" class="btn-sm btn-primary" value="Save" />
+            <input type="button" class="btn-sm btn-primary" value="Clear" />
+        </li>
+        <li class="list-group-item">
+         <select id="Type" name="Type" class="form-control">
+             <option disabled selected>Product Type : </option>
+             <option value="Home">Home</option>
+             <option value="Industrial">Industrial</option>
+         </select>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <p class="bold mr-4">Model Year: </p>
+                <input type="text" class="boxsize2 form-control" name="minYear" id="minYear" />
+                <a> - </a>
+                <input type="text" class="boxsize2 form-control" name="maxYear" id="maxYear" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Technical Specifications
+        </li>
+        <li class="list-group-item">
+            <form>
+                <label>&#8645; Airflow(CFM) </label> <br>
+                <div class="input-group navblock">
+                    <div class="input-group-prepend pr-2">
+                        <input type="text" class="boxsize form-control" name="amountMin" min="0" max="20" value="0" oninput="this.form.amountRangeMin.value=this.value" />
+                    </div>
+                    <input type="range" name="amountRangeMin" min="0" max="20" value="0" oninput="this.form.amountMin.value=this.value" />
+                    <input type="range" name="amountRangeMax" min="20" max="40" value="20" oninput="this.form.amountMax.value=this.value" />
+                    <div class="input-group-append pl-2">
+                        <input type="text" class="boxsize form-control" name="amountMax" min="20" max="40" value="20" oninput="this.form.amountRangeMax.value=this.value" />
+                    </div>
+                </div>
 
-<h2>ProductResult</h2>
+                <label>&#8645; Max Power(W)</label> <br>
+                <div class="input-group navblock">
+                    <div class="input-group-prepend pr-2">
+                        <input type="text" class="boxsize form-control" name="PowerMin" min="0" max="20" value="0" oninput="this.form.PowerRangeMin.value=this.value" />
+                    </div>
+                    <input type="range" name="PowerRangeMin" min="15" max="40" value="0" oninput="this.form.PowerMin.value=this.value" />
+                    <input type="range" name="PowerRangeMax" min="40" max="80" value="20" oninput="this.form.PowerMax.value=this.value" />
+                    <div class="input-group-append pl-2">
+                        <input type="text" class="boxsize form-control" name="PowerMax" min="40" max="80" value="40" oninput="this.form.PowerRangeMax.value=this.value" />
+                    </div>
+                </div>
 
+                <label> &#8645; Sound at max speed(dBA)</label> <br>
+
+                <div class="input-group navblock">
+                    <div class="input-group-prepend pr-2">
+                        <input type="text" class="boxsize form-control" name="SoundMin" min="5" max="30" value="5" oninput="this.form.SoundRangeMin.value=this.value" />
+                    </div>
+                    <input type="range" name="SoundRangeMin" min="5" max="30" value="5" oninput="this.form.SoundMin.value=this.value" />
+                    <input type="range" name="SoundRangeMax" min="30" max="60" value="30" oninput="this.form.SoundMax.value=this.value" />
+                    <div class="input-group-append pl-2">
+                        <input type="text" class="boxsize form-control" name="SoundMax" min="30" max="60" value="30" oninput="this.form.SoundRangeMax.value=this.value" />
+                    </div>
+                </div>
+
+                <label>&#8645; Fan Sweep Diameter(in)</label> <br>
+
+                <div class="input-group navblock">
+                    <div class="input-group-prepend pr-2">
+                        <input type="text" class="boxsize form-control" name="DiameterMin" min="10" max="50" value="10" oninput="this.form.DiameterRangeMin.value=this.value" />
+                    </div>
+                    <input type="range" name="DiameterRangeMin" min="10" max="50" value="10" oninput="this.form.DiameterMin.value=this.value" />
+                    <input type="range" name="DiameterRangeMax" min="50" max="75" value="50" oninput="this.form.DiameterMax.value=this.value" />
+                    <div class="input-group-append pl-2">
+                        <input type="text" class="boxsize form-control" name="DiameterMax" min="50" max="75" value="50" oninput="this.form.DiameterRangeMax.value=this.value" />
+                    </div>
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>
+<div class="main">
+
+    <b>Mechanical</b> > HVAC fans
+
+    <br>
+
+    <div class="container">
+        <div id="st-box">
+            <img src="golden.jpg" style="width:220px; height:160px;">
+            <p style="text-align: center;">
+                big ass <br> Haiku H Series <br> 321SDFJ
+            </p>
+
+            <div>
+                <input type="checkbox" id="Compare" name="Compare">
+                <label for="scales">Compare</label>
+                <button>Add to</button>
+            </div>
+        </div>
+
+        <div id="nd-box">
+            <img src="fan1.jpg" style="width:220px; height:160px;">
+            <p style="text-align: center;">
+                big ass <br> Haiku H Series <br> 444DSHD$
+            </p>
+
+            <div>
+                <input type="checkbox" id="Compare" name="Compare">
+                <label for="scales">Compare</label>
+                <button>Add to</button>
+            </div>
+        </div>
+    </div>
+</div>

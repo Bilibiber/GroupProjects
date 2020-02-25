@@ -150,6 +150,7 @@
     <Content Include="Content\Imgs\download.png" />
     <Content Include="Content\Imgs\joole.png" />
     <Content Include="Content\Imgs\joole4.png" />
+    <Content Include="Content\RayStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -284,8 +285,9 @@
     <Content Include="Views\Login\SignUpError.cshtml" />
     <Content Include="Views\Login\LoginError.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Shared\Product_Layout.cshtml" />
     <Content Include="Views\Products\ProductResult.cshtml" />
-    <Content Include="Views\Shared\Products.cshtml" />
+    <Content Include="Views\Products\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

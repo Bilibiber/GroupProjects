@@ -1,0 +1,185 @@
+p {
+    color:black;
+}
+
+.header {
+    background-image: linear-gradient(#4377a8,#cce2eb);
+}
+  
+  .logo {
+      float: left;
+  }
+
+  .SearchForm {
+    text-align: right;    
+    float: left;
+    margin-top: -40px;
+    margin-left: 280px;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content {
+  
+    display: none;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+  }
+
+  button {
+      border-radius:10px;
+      background-color: #034f84;
+      
+  }
+
+  .left {
+      border: 1px solid;
+      border-color: #A9A9A9;
+      border-left-style: none;
+      border-bottom-style: none;
+      width: 450px;
+      height: auto;
+      position: absolute;
+      background-color: gainsboro !important;
+  }
+
+  .main {
+    width:auto;
+    height: auto;
+    padding-left:470px;
+
+}
+
+
+.container { 
+    width:600px; 
+    height:190px; 
+    padding-top:20px; 
+    padding-left:15px; 
+    padding-right:15px; 
+} 
+
+#st-box { 
+    float:left; 
+    width:220px; 
+    height:320px; 
+    background-color:white; 
+    border:1px solid #A9A9A9; 
+    margin-left: -10px;
+} 
+#nd-box { 
+    float:left; 
+    width:220px; 
+    height:320px; 
+    background-color:white;  
+    border:1px solid #A9A9A9; 
+    margin-left:35px; 
+}
+
+.dot {
+    height: 80px;
+    width: 80px;
+    background-color:  #878f99;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .header .user{
+      float: right;
+      margin-top: -60px;
+      margin-right: 80px;
+  }
+
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .dd-button {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: blue;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 15px;
+  }
+  
+  .dd-button:after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    float: right;
+    margin-left: -10px;
+    transform: translateY(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+  }
+  
+  .dd-button:hover {
+    background-color: #222222;
+  }
+  
+  
+  .dd-input {
+    display: none;
+  }
+  
+  .dd-menu {
+    position: absolute;
+    top: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 2px 0 0 0;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+    background-color: blue;
+    list-style-type: none;
+  }
+  
+  .dd-input + .dd-menu {
+    display: none;
+  } 
+  
+  .dd-input:checked + .dd-menu {
+    display: block;
+  } 
+  
+  .dd-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  
+  .dd-menu li:hover {
+    background-color: #222222;
+  }
+  
+  .dd-menu li a {
+    display: block;
+    margin: -10px -20px;
+    padding: 10px 20px;
+  }
+  
+  .dd-menu li.divider{
+    padding: 0;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .slider1 {
+      height: 100%;
+      width: auto;
+  }

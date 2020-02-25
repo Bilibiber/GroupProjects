@@ -11,6 +11,7 @@ namespace WebGroupProject.Controllers
     {
         NewDataBase DataBase = new NewDataBase();
         // GET: Search
+        [HttpGet]
         public ActionResult Search()
         {
           
@@ -30,9 +31,10 @@ namespace WebGroupProject.Controllers
             List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
             return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
         public ActionResult SearchGo()
         {
-            return View();
+            return RedirectToAction("ProductResult", "Products");
         }
     }
 }
