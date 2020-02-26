@@ -1,0 +1,38 @@
+﻿* {
+    font-size: 16px;
+}
+
+.header {
+    text-align: center;
+    background-image: linear-gradient(#4377a8,#55c2ed,#cce2eb);
+    padding: 10px;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    background-color: #cce2eb;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #cce2eb;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    padding-bottom: : 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #569DA1;
+}

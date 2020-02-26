@@ -2,13 +2,14 @@
 @{
     ViewBag.Title = "Search";
 }
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
-    <div class="LoginSection">
-        <div>
-            <img src="~/Content/Imgs/joole.png" alt="Joole Logo" width="400" height="200" />
-        </div>
-        <h3 class="wordsPadding">Building Product Selection Platform</h3>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="LoginSection">
+    <div>
+        <img src="~/Content/Imgs/joole.png" alt="Joole Logo" width="400" height="200" />
+    </div>
+    <h3 class="wordsPadding">Building Product Selection Platform</h3>
+    <form action="SearchGo" method="post">
         <div class="input-group mb-3 justify-content-center">
             <div class="input-group-prepend">
                 @if (ViewBag.CategoryListName != null)
@@ -18,12 +19,11 @@
             </div>
             @Html.DropDownListFor(model => model.SubCategoryID, new SelectList(" "), "Search...", new { @class = "form-control bold" })
             <div class="input-group-append">
-                <form action="SearchGo" method="post">
-                    <button id="SearchBtn" name="SearchBtn" class="btns form-control" formaction="SearchGo" formmethod="post" value="SearchGo"><i class="material-icons">search</i></button>
-                </form>
+                <a id="SearchBtn" name="SearchBtn" class="btns form-control" href="/Products/ProductResult?SubcategoryID=@Html.ViewContext.HttpContext.Session["SubCategoryID"]"><i class="material-icons">search</i></a>
             </div>
         </div>
-    </div>
+    </form>
+</div>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
     $(document).ready(function () {
@@ -39,7 +39,7 @@
         })
         $("#SubCategoryID").change(function () {
             var SelectedSubCategoryID = $("#SubCategoryID Option:Selected").val();
-             sessionStorage.setItem("SubCategoryID", SelectedSubCategoryID);
+            sessionStorage.setItem("SubCategoryID", SelectedSubCategoryID);
         });
     });
 </script>

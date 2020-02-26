@@ -1,5 +1,6 @@
 ﻿using JooleBLL;
 using JooleBLL.Interface;
+using JooleDAL;
 using JooleDomain;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,16 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebGroupProject.Models;
 
 namespace WebGroupProject.Controllers
 {
     public class LoginController : Controller
     {
         private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
+
+        NewDataBase db = new NewDataBase();
+
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -22,52 +27,79 @@ namespace WebGroupProject.Controllers
         }
         public ActionResult Login(string Email, string Password)
         {
-            string HashedPassword = "";
-            con.Open();
-            SqlCommand sql = new SqlCommand();
-            sql.Connection = con;
-            sql.CommandText = "Select UserPassword from tblUser where UserEmail=@Email";
-            sql.Parameters.AddWithValue("@Email", Email);
-            SqlDataReader reader;
-            reader = sql.ExecuteReader();
-            if (reader.Read()) 
+            string HashedPassword = db.tblUsers.SingleOrDefault(x => x.UserEmail == Email)?.UserPassword.ToString();
+            //con.Open();
+            //SqlCommand sql = new SqlCommand();
+            //sql.Connection = con;
+            //sql.CommandText = "Select UserPassword from tblUser where UserEmail=@Email";
+            //sql.Parameters.AddWithValue("@Email", Email);
+            //SqlDataReader reader;
+            //reader = sql.ExecuteReader();
+            //if (reader.Read()) 
+            //{
+            //    HashedPassword = reader.GetString(0);
+            if (PasswordHash.ValidatePassword(Password, HashedPassword))
             {
-                HashedPassword = reader.GetString(0);
-                if (PasswordHash.ValidatePassword(Password, HashedPassword))
-                {
-                    return RedirectToAction("Search", "Search");
-                }
-                else
-                {
-                    return View("LoginError");
-                }
+                return RedirectToAction("Search", "Search");
             }
             else
             {
                 return View("LoginError");
             }
         }
+        //else
+        //{
+        //    return View("LoginError");
+        //}
         [HttpPost]
         public ActionResult SignUp(string SignUpUserName, string SignUpEmail, string SignUpPassword)
         {
             try
             {
                 string HashedPassword = PasswordHash.HashPassword(SignUpPassword);
-                con.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = con;
-                command.CommandText = "Insert Into tblUser Values(@SignUpEmail, @SignUpPassword, @SignUpUserName, @SignUpUserName)";
-                command.Parameters.AddWithValue("@SignUpEmail", SignUpEmail);
-                command.Parameters.AddWithValue("@SignUpPassword", HashedPassword);
-                command.Parameters.AddWithValue("@SignUpUserName", SignUpUserName);
-                command.ExecuteNonQuery();
+
+                bool CheckEmail = db.tblUsers.Any(x => x.UserEmail == SignUpEmail);
+                if (CheckEmail == false)
+                {
+                    tblUser user = new tblUser();
+                    user.UserEmail = SignUpEmail;
+                    user.UserPassword = HashedPassword;
+                    user.UserFirstName = SignUpUserName;
+                    user.UserLastName = SignUpUserName;
+
+
+                    db.tblUsers.Add(user);
+                    db.SaveChanges();
+                    return View("Index");
+                }
+                else
+                {
+                    return View("SignUpError");
+                }
+            }
+            catch (Exception)
+            {
                 return View("Index");
             }
-            catch(Exception)
-            {
-                return View("SignUpError");
-            }
-            
+            //    try
+            //    {
+            //        string HashedPassword = PasswordHash.HashPassword(SignUpPassword);
+            //        con.Open();
+            //        SqlCommand command = new SqlCommand();
+            //        command.Connection = con;
+            //        command.CommandText = "Insert Into tblUser Values(@SignUpEmail, @SignUpPassword, @SignUpUserName, @SignUpUserName)";
+            //        command.Parameters.AddWithValue("@SignUpEmail", SignUpEmail);
+            //        command.Parameters.AddWithValue("@SignUpPassword", HashedPassword);
+            //        command.Parameters.AddWithValue("@SignUpUserName", SignUpUserName);
+            //        command.ExecuteNonQuery();
+            //        return View("Index");
+            //    }
+            //    catch(Exception)
+            //    {
+            //        return View("SignUpError");
+            //    }
+
+            //}
         }
     }
 }

@@ -13,7 +13,7 @@
     <link href="~/Content/CustomCSS.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link href="~/Content/YashStyle.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -32,11 +32,18 @@
             @Html.DropDownListFor(model => model.SubCategoryID, new SelectList(" "), "Search...", new { @class = "form-control bold" })
             <div class="input-group-append">
                 <form action="SearchGoGo" method="post">
-                    <button id="SearchBtn" name="SearchBtn" class="btns form-control" formaction="SearchGoGo" formmethod="post" value="submit"><i class="material-icons">search</i></button>
+                    <a id="SearchBtn" name="SearchBtn" class="btns form-control"  href="/Products/ProductResult?SubcategoryID=@Html.ViewContext.HttpContext.Session["SubCategoryID"]"><i class="material-icons">search</i></a>
                 </form>
             </div>
         </div>
     </div>
+    <div class="topnav">
+        <a href="#">Product Summary</a>
+        <a href="#">Product Details</a>
+        <a href="#">Product Documentation</a>
+        <a href="#">Contact</a>
+    </div>
+
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")

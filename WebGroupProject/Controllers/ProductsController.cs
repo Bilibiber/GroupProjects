@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using WebGroupProject.Models;
 
 namespace WebGroupProject.Controllers
 {
@@ -9,17 +10,24 @@ namespace WebGroupProject.Controllers
     {
         private NewDataBase DataBase = new NewDataBase();
 
-        // GET: Products
         [HttpGet]
-        public ActionResult ProductResult()
+        public ActionResult ProductResult(int SubCategoryID)
         {
+            //Create the dropdown list
             List<tblCategory> categoryList = DataBase.tblCategories.ToList();
             ViewBag.CategoryListName = new SelectList(categoryList, "CategoryID", "CategoryName");
 
-            // fill data to the view 
-            // work from here.
-          
-            return View("ProductResult");
+            //Create the productList
+            List<tblProduct> tblProductslist = DataBase.tblProducts.ToList();
+            List<ProductViewModel> VMlist = tblProductslist.Where(x => x.SubCategoryID == SubCategoryID).Select(x => new ProductViewModel
+            {
+                Series = x.Series,
+                ProductName = x.ProductName,
+                Model = x.Model,
+                ProductID = x.ProductID
+            }).ToList();
+
+            return View(VMlist);
         }
 
         public JsonResult GetSubCategory(int CategoryID)
@@ -27,15 +35,6 @@ namespace WebGroupProject.Controllers
             DataBase.Configuration.ProxyCreationEnabled = false;
             List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
             return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
-        }
-        [HttpPost]
-        public ActionResult SearchGoGo()
-        {
-            return RedirectToAction("ProductResult", "Products");
-        }
-        public ActionResult Test()
-        {
-            return View();
         }
     }
 }
