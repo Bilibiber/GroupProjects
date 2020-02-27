@@ -70,7 +70,7 @@
                         </div>
                         <br />
                         <div class="input-group">
-                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" required/>
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" onmouseout="comparePassword()" required/>
                         </div>
                     </div>
                 </div>
@@ -87,3 +87,12 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function comparePassword() {
+        var password = document.getElementById("SignUpPassword");
+        var Cpassword = document.getElementById("ConfirmPassword");
+        if (password != Cpassword) {
+
+        }
+    }
+</script>

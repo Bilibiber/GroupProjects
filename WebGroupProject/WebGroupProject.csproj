@@ -156,6 +156,7 @@
     <Content Include="Content\Imgs\joole.png" />
     <Content Include="Content\Imgs\joole4.png" />
     <Content Include="Content\RayStyle.css" />
+    <Content Include="Content\table.css" />
     <Content Include="Content\thumbnail_fan1.jpg" />
     <Content Include="Content\YashStyle.css" />
     <Content Include="favicon.ico" />
@@ -296,7 +297,7 @@
     <Content Include="Views\Products\ProductResult.cshtml" />
     <Content Include="Views\Shared\ProductSummary_Layout.cshtml" />
     <Content Include="Views\Summary\Index.cshtml" />
-    <Content Include="Views\Compare\Compare.cshtml" />
+    <Content Include="Views\Compare\Page.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

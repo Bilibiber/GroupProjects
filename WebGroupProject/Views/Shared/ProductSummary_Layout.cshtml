@@ -23,7 +23,7 @@
         {
             <div class="input-group mb-3 justify-content-center paddingtop">
                 <div class="input-group-prepend">
-                    @Html.DropDownList("CategoaryID", (IEnumerable<SelectListItem>)TempData["CategoryListName"], new { @class = "form-control dropdownColor"})
+                    @*@Html.DropDownList("CategoaryID", (IEnumerable<SelectListItem>)TempData["CategoryListName"], new { @class = "form-control dropdownColor"})*@
                 </div>
                     @Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })
                 <div class="input-group-append">

@@ -26,9 +26,5 @@ namespace WebGroupProject.Controllers
 
             return View(VMlist);
         }
-        public ActionResult Test()
-        {
-            return View();
-        }
     }
 }

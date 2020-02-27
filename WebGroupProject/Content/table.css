@@ -1,0 +1,24 @@
+﻿table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td {
+    border: 1px solid #ececec;
+    text-align: left;
+    padding: 8px;
+}
+
+.table1 {
+    position: absolute;
+    width: 200px;
+}
+
+.table2 {
+   padding-left: 200px;
+}
+.spacex{
+    width: 200px;
+    height: 250px;
+}

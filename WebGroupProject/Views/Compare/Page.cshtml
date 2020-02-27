@@ -1,0 +1,87 @@
+﻿@model  IEnumerable<WebGroupProject.Models.ProductViewModel>
+@{
+    ViewBag.Title = "Page";
+    Layout = "~/Views/Shared/ProductSummary_Layout.cshtml";
+}
+<link href="~/Content/table.css" rel="stylesheet" />
+<div class="table1">
+    <table id="Description">
+        <tr class="spacex">
+        </tr>
+        <tr>
+            <td class="first" style="background-color: #f0eae2 ;">Description</td>
+        </tr>
+        <tr>
+            <td class="first">Manufactures</td>
+        </tr>
+        <tr>
+            <td class="first">Series</td>
+        </tr>
+        <tr>
+            <td class="first">Models</td>
+        </tr>
+        <tr>
+            <td class="first" style="background-color: #f0eae2 ;">Type</td>
+        </tr>
+        <tr>
+            <td class="first">Use Type</td>
+        </tr>
+        <tr>
+            <td class="first">Application</td>
+        </tr>
+        <tr>
+            <td class="first">Mounting Location</td>
+        </tr>
+        <tr>
+            <td class="first">Accessories</td>
+        </tr>
+        <tr>
+            <td class="first">Model Year</td>
+        </tr>
+    </table>
+</div>
+
+<div class="table2 col-md-4">
+    
+    <table>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <img src="~/Content/thumbnail_fan1.jpg" width="150" height="200" />
+                    <tr>
+                        <td style="background-color: #f0eae2 ;">Description</td>
+                    </tr>
+                    <tr>
+                        <td>@item.Manufacturer</td>
+                    </tr>
+                    <tr>
+                        <td>@item.Series</td>
+                    </tr>
+                    <tr>
+                        <td>@item.Model</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #f0eae2 ;">Type</td>
+                    </tr>
+                    <tr>
+                        <td>Use Type</td>
+                    </tr>
+                    <tr>
+                        <td>@item.Application</td>
+                    </tr>
+                    <tr>
+                        <td>@item.Mounting_Location </td>
+                    </tr>
+                    <tr>
+                        <td>Outdoor</td>
+                    </tr>
+                    <tr>
+                        <td>@item.Model_Year</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

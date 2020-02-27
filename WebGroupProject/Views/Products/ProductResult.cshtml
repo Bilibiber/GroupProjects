@@ -102,9 +102,9 @@
                     <a href="/Summary/Index?ProductID=@item.ProductID">Details</a>
 
                     <div>
-                        <input type="checkbox" name="SelectedIDs" class="unable" onclick="CreateArray()" value="@item.ProductID">
+                        <input type="checkbox" name="SelectedIDs" class="CompareCheck" onclick="CreateArray(this.value)" value="@item.ProductID">
                         <label>Compare</label>
-                        <input type="button" class="btn-sm btn-primary" onclick="SendtoAction()" value="Go" />
+                        <input type="button" class="btn-sm btn-primary" onclick="SendtoAction()" value="Compare!" />
                     </div>
                 </div>
 
@@ -116,10 +116,9 @@
 <script type="text/javascript">
     var arr = new Array();
     var actionCount = 0;
-    function CreateArray() {
-        var checkedValue = $('.unable:checked').val();
-        arr[actionCount] = checkedValue;
-        var test = arr[0];
+    function CreateArray(value) {
+        arr[actionCount] = value;
+        var test = arr[actionCount];
         console.log(test);
         actionCount++;
     }
@@ -128,7 +127,8 @@
             alert("You have to check at least two items")
         }
         else {
-          $.post('/Compare/Compare', $.param({ data: arr }, true), function(data) {});      
+            $.post('/Compare/Compare', $.param({ data: arr }, true), function (data) { });
+            window.location.href ='/Compare/Page/'
         }
     }
 </script>
