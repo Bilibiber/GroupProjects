@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<WebGroupProject.Models.ProductViewModel>*@
+﻿@model  IEnumerable<WebGroupProject.Models.ProductViewModel>
 @{
     ViewBag.Title = "ProductResult";
     Layout = "~/Views/Shared/Product_Layout.cshtml";
@@ -11,11 +11,11 @@
             <input type="button" class="btn-sm btn-primary" value="Clear" />
         </li>
         <li class="list-group-item">
-         <select id="Type" name="Type" class="form-control">
-             <option disabled selected>Product Type : </option>
-             <option value="Home">Home</option>
-             <option value="Industrial">Industrial</option>
-         </select>
+            <select id="Type" name="Type" class="form-control">
+                <option disabled selected>Product Type : </option>
+                <option value="Home">Home</option>
+                <option value="Industrial">Industrial</option>
+            </select>
         </li>
         <li class="list-group-item">
             <div class="row">
@@ -90,30 +90,45 @@
     <br>
 
     <div class="container">
-        <div id="st-box">
-            <img src="golden.jpg" style="width:220px; height:160px;">
-            <p style="text-align: center;">
-                big ass <br> Haiku H Series <br> 321SDFJ
-            </p>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div id="st-box">
+                    <img src="~/Content/thumbnail_fan1.jpg" style="width:220px; height:160px;">
+                    <p style="text-align: center;">
+                        @item.ProductName <br> @item.Series <br> @item.Model
+                    </p>
+                    <a href="/Summary/Index?ProductID=@item.ProductID">Details</a>
 
-            <div>
-                <input type="checkbox" id="Compare" name="Compare">
-                <label for="scales">Compare</label>
-                <button>Add to</button>
-            </div>
-        </div>
+                    <div>
+                        <input type="checkbox" name="SelectedIDs" class="unable" onclick="CreateArray()" value="@item.ProductID">
+                        <label>Compare</label>
+                        <input type="button" class="btn-sm btn-primary" onclick="SendtoAction()" value="Go" />
+                    </div>
+                </div>
 
-        <div id="nd-box">
-            <img src="fan1.jpg" style="width:220px; height:160px;">
-            <p style="text-align: center;">
-                big ass <br> Haiku H Series <br> 444DSHD$
-            </p>
-
-            <div>
-                <input type="checkbox" id="Compare" name="Compare">
-                <label for="scales">Compare</label>
-                <button>Add to</button>
-            </div>
-        </div>
+            }
+        }
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var arr = new Array();
+    var actionCount = 0;
+    function CreateArray() {
+        var checkedValue = $('.unable:checked').val();
+        arr[actionCount] = checkedValue;
+        var test = arr[0];
+        console.log(test);
+        actionCount++;
+    }
+    function SendtoAction() {
+        if (actionCount < 2) {
+            alert("You have to check at least two items")
+        }
+        else {
+          $.post('/Compare/Compare', $.param({ data: arr }, true), function(data) {});      
+        }
+    }
+</script>

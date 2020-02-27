@@ -1,0 +1,108 @@
+﻿@using System.Data
+@using WebGroupProject.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/ProductSummary_Layout.cshtml";
+}
+
+@model DataSet
+
+    <link href="~/Content/YashStyle.css" rel="stylesheet" />
+<div class="left_table">
+    <div>
+        <h3>DESCRIPTION</h3><br />
+        <table class="SummaryTable">
+            @foreach (DataRow row in Model.Tables[0].Rows)
+            {
+                <tr>
+                    <th>Manufacturer</th>
+                    <td> @row["Manufacturer"]</td>
+                </tr>
+                <tr>
+                    <th>Series</th>
+                    <td> @row["Series"]</td>
+                </tr>
+                <tr>
+                    <th>Model</th>
+                    <td> @row["Model"]</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br /><br />
+    <div>
+        <h3>TYPE</h3><br />
+        <table class="SummaryTable">
+            @foreach (DataRow row in Model.Tables[0].Rows)
+            {
+                <tr>
+                    <th>Use Type</th>
+                    <td> @row["Use_Type"]</td>
+                </tr>
+                <tr>
+                    <th>Application</th>
+                    <td> @row["Application"]</td>
+                </tr>
+                <tr>
+                    <th>Mounting Location</th>
+                    <td> @row["Mounting_Location"]</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="right_table">
+    <h3>TECHNICAL SPECIFICATIONS</h3><br />
+    <table class="SummaryTable" id="table2">
+        @foreach (DataRow row in Model.Tables[0].Rows)
+        {
+            <tr>
+                <th>Air Flow(CFM)</th>
+                <td> @row["Airflow"]</td>
+            </tr>
+            <tr>
+                <th>Power(W)</th>
+                <th>Min:</th>
+                <td> @row["MinPower"]</td>
+                <th>Max:</th>
+                <td> @row["MaxPower"]</td>
+            </tr>
+            <tr>
+                <th>Operating Voltage (VAC)</th>
+                <th>Min:</th>
+                <td> @row["MinVoltage"]</td>
+                <th>Max:</th>
+                <td> @row["MaxVoltage"]</td>
+            </tr>
+            <tr>
+                <th>Fan Speed (RPM)</th>
+                <th>Min:</th>
+                <td> @row["MinFanSpeed"]</td>
+                <th>Max:</th>
+                <td> @row["MaxFanSpeed"]</td>
+            </tr>
+            <tr>
+                <th>Sound At Max Speed (dBA)</th>
+                <td> @row["SoundAtMaxSpeed"]</td>
+            </tr>
+            <tr>
+                <th>Fan Sweep Diameter (in)</th>
+                <td> @row["FanDiameter"]</td>
+            </tr>
+            <tr>
+                <th>Height (in)</th>
+                <th>Min:</th>
+                <td> @row["MinHeight"]</td>
+                <th>Max:</th>
+                <td> @row["MaxHeight"]</td>
+            </tr>
+            <tr>
+                <th>Weight (lbs)</th>
+                <td> @row["Weights"]</td>
+            </tr>
+        }
+    </table>
+</div>
+
+

@@ -5,10 +5,10 @@ using System.Web;
 
 namespace WebGroupProject.Models
 {
-    public class CategoryDropdownViewModel
+    public class CategoaryListVM
     {
-        public int CategoryID { get; set; }
+        public int CategoaryID { get; set; }
 
-        public int SubCategoryID { get; set; }
+        public int SubCategoaryID { get; set; }
     }
 }

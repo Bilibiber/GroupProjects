@@ -1,5 +1,4 @@
-﻿@model WebGroupProject.Models.CategoryDropdownViewModel
-@{
+﻿@{ 
     ViewBag.Title = "Search";
 }
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -9,37 +8,33 @@
         <img src="~/Content/Imgs/joole.png" alt="Joole Logo" width="400" height="200" />
     </div>
     <h3 class="wordsPadding">Building Product Selection Platform</h3>
-    <form action="SearchGo" method="post">
-        <div class="input-group mb-3 justify-content-center">
-            <div class="input-group-prepend">
-                @if (ViewBag.CategoryListName != null)
-                {
-                    @Html.DropDownListFor(model => model.CategoryID, ViewBag.CategoryListName as SelectList, "Category", new { @class = "form-control dropdownColor" })
-                }
-            </div>
-            @Html.DropDownListFor(model => model.SubCategoryID, new SelectList(" "), "Search...", new { @class = "form-control bold" })
-            <div class="input-group-append">
-                <a id="SearchBtn" name="SearchBtn" class="btns form-control" href="/Products/ProductResult?SubcategoryID=@Html.ViewContext.HttpContext.Session["SubCategoryID"]"><i class="material-icons">search</i></a>
-            </div>
-        </div>
-    </form>
+    @using (Html.BeginForm("ProductResult", "Products", FormMethod.Post))
+    {
+<div class="input-group mb-3 justify-content-center">
+    <div class="input-group-prepend">
+        @if (TempData["CategoryListName"] != null)
+        {
+            @Html.DropDownList("CategoaryID", TempData["CategoryListName"] as SelectList, "Category", new { @class = "form-control dropdownColor", @name = "CategoaryID" })
+        }
+    </div>
+    @Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })
+    <div class="input-group-append">
+        <button type="submit" value="Submit" class="btns form-control"><i class="material-icons">search</i></button>
+    </div>
+</div>
+    }
 </div>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
+
 <script>
     $(document).ready(function () {
-        $("#CategoryID").change(function () {
-            var SelectedID = $("#CategoryID Option:Selected").val();
-            sessionStorage.setItem("CategoryID", SelectedID);
-            $.get("/Search/GetSubCategory", { CategoryID: $("#CategoryID").val() }, function (data) {
-                $("#SubCategoryID").empty();
+        $("#CategoaryID").change(function () {
+            $.get("/Search/GetSubCategory", { CategoryID: $("#CategoaryID").val() }, function (data) {
+                $("#SubCategoaryID").empty();
                 $.each(data, function (index, row) {
-                    $("#SubCategoryID").append("<option value='" + row.SubCategoryID + "'>" + row.SubCategoryName + "</option>")
+                    $("#SubCategoaryID").append("<option value='" + row.SubCategoryID + "'>" + row.SubCategoryName + "</option>")
                 });
             });
         })
-        $("#SubCategoryID").change(function () {
-            var SelectedSubCategoryID = $("#SubCategoryID Option:Selected").val();
-            sessionStorage.setItem("SubCategoryID", SelectedSubCategoryID);
-        });
     });
 </script>

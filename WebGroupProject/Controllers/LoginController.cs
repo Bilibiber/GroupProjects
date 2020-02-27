@@ -15,10 +15,7 @@ namespace WebGroupProject.Controllers
 {
     public class LoginController : Controller
     {
-        private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["myConnectionString"].ToString());
-
         NewDataBase db = new NewDataBase();
-
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -28,16 +25,6 @@ namespace WebGroupProject.Controllers
         public ActionResult Login(string Email, string Password)
         {
             string HashedPassword = db.tblUsers.SingleOrDefault(x => x.UserEmail == Email)?.UserPassword.ToString();
-            //con.Open();
-            //SqlCommand sql = new SqlCommand();
-            //sql.Connection = con;
-            //sql.CommandText = "Select UserPassword from tblUser where UserEmail=@Email";
-            //sql.Parameters.AddWithValue("@Email", Email);
-            //SqlDataReader reader;
-            //reader = sql.ExecuteReader();
-            //if (reader.Read()) 
-            //{
-            //    HashedPassword = reader.GetString(0);
             if (PasswordHash.ValidatePassword(Password, HashedPassword))
             {
                 return RedirectToAction("Search", "Search");
@@ -47,10 +34,7 @@ namespace WebGroupProject.Controllers
                 return View("LoginError");
             }
         }
-        //else
-        //{
-        //    return View("LoginError");
-        //}
+
         [HttpPost]
         public ActionResult SignUp(string SignUpUserName, string SignUpEmail, string SignUpPassword)
         {
@@ -64,9 +48,7 @@ namespace WebGroupProject.Controllers
                     tblUser user = new tblUser();
                     user.UserEmail = SignUpEmail;
                     user.UserPassword = HashedPassword;
-                    user.UserFirstName = SignUpUserName;
-                    user.UserLastName = SignUpUserName;
-
+                    user.UserName = SignUpUserName;
 
                     db.tblUsers.Add(user);
                     db.SaveChanges();
@@ -81,25 +63,6 @@ namespace WebGroupProject.Controllers
             {
                 return View("Index");
             }
-            //    try
-            //    {
-            //        string HashedPassword = PasswordHash.HashPassword(SignUpPassword);
-            //        con.Open();
-            //        SqlCommand command = new SqlCommand();
-            //        command.Connection = con;
-            //        command.CommandText = "Insert Into tblUser Values(@SignUpEmail, @SignUpPassword, @SignUpUserName, @SignUpUserName)";
-            //        command.Parameters.AddWithValue("@SignUpEmail", SignUpEmail);
-            //        command.Parameters.AddWithValue("@SignUpPassword", HashedPassword);
-            //        command.Parameters.AddWithValue("@SignUpUserName", SignUpUserName);
-            //        command.ExecuteNonQuery();
-            //        return View("Index");
-            //    }
-            //    catch(Exception)
-            //    {
-            //        return View("SignUpError");
-            //    }
-
-            //}
         }
     }
 }

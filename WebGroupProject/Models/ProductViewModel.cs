@@ -7,6 +7,7 @@ namespace WebGroupProject.Models
 {
     public class ProductViewModel
     {
+        public string Accessories { get; set; }
         public int ProductID { get; set; }
         public string Manufacturer { get; set; }
         public string ProductName { get; set; }

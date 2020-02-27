@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="8bbd6435708b42d08286e70fee9cfb3f" Name="Diagram1">
         <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblCategory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblCategory" Width="1.5" PointX="0.625" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProduct" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProductsDetal" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TeamAlphaGroupProjectsModel.tblProductSeriesInfo" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
@@ -15,6 +15,7 @@
         <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblProducts_tblSubCategory" ManuallyRouted="false" />
         <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblProductsDetals_tblProducts" ManuallyRouted="false" />
         <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblProductSeriesInfo_tblProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="TeamAlphaGroupProjectsModel.FK_tblSubCategory_tblCategories" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

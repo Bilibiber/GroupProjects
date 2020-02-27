@@ -10,16 +10,13 @@ namespace WebGroupProject.Controllers
     {
         private NewDataBase DataBase = new NewDataBase();
 
-        [HttpGet]
-        public ActionResult ProductResult(int SubCategoryID)
+        [HttpPost]
+        public ActionResult ProductResult(int SubCategoaryID)
         {
-            //Create the dropdown list
-            List<tblCategory> categoryList = DataBase.tblCategories.ToList();
-            ViewBag.CategoryListName = new SelectList(categoryList, "CategoryID", "CategoryName");
-
+            TempData.Keep();
             //Create the productList
             List<tblProduct> tblProductslist = DataBase.tblProducts.ToList();
-            List<ProductViewModel> VMlist = tblProductslist.Where(x => x.SubCategoryID == SubCategoryID).Select(x => new ProductViewModel
+            List<ProductViewModel> VMlist = tblProductslist.Where(x => x.SubCategoryID == SubCategoaryID).Select(x => new ProductViewModel
             {
                 Series = x.Series,
                 ProductName = x.ProductName,
@@ -29,12 +26,9 @@ namespace WebGroupProject.Controllers
 
             return View(VMlist);
         }
-
-        public JsonResult GetSubCategory(int CategoryID)
+        public ActionResult Test()
         {
-            DataBase.Configuration.ProxyCreationEnabled = false;
-            List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
-            return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
+            return View();
         }
     }
 }

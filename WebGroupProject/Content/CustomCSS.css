@@ -113,3 +113,9 @@ body {
     width: 45px !important;
     font-size: x-small;
 }
+.paddingtop {
+  padding-top: 40px;
+}
+.boxpadding {
+    padding: 5px 10px 5px 10px;
+}

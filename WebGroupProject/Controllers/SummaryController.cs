@@ -13,8 +13,9 @@ namespace WebGroupProject.Controllers
     public class SummaryController : Controller
     {
         // GET: Summary
-        public ActionResult Index(int s1)
+        public ActionResult Index(int ProductID)
         {
+            TempData.Keep();
             //int s1 = 4;
             string CS = "Server=192.168.1.5;Database=TeamAlphaGroupProjects;User Id=T_User1;Password=us1;";
             SqlConnection con = new SqlConnection(CS);
@@ -24,7 +25,7 @@ namespace WebGroupProject.Controllers
             SqlCommand cmd = new SqlCommand("select * from tblProductsDetals join tblProducts on tblProducts.ProductID = tblProductsDetals.ProductID and tblProducts.ProductID = @pid", con);
 
 
-            cmd.Parameters.AddWithValue("@pid", s1);
+            cmd.Parameters.AddWithValue("@pid", ProductID);
             DataTable dtProduct = new DataTable("Product");
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dtProduct);
