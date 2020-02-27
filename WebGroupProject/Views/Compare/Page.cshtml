@@ -5,7 +5,7 @@
 }
 <link href="~/Content/table.css" rel="stylesheet" />
 <div class="table1">
-    <table id="Description">
+    <table>
         <tr class="spacex">
         </tr>
         <tr>
@@ -40,16 +40,16 @@
         </tr>
     </table>
 </div>
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <img src="~/Content/thumbnail_fan1.jpg" width="150" height="200" />
+        <p>@item.ProductName</p>
 
-<div class="table2 col-md-4">
-    
-    <table>
-        <tbody>
-            @if (Model != null)
-            {
-                foreach (var item in Model)
-                {
-                    <img src="~/Content/thumbnail_fan1.jpg" width="150" height="200" />
+            @*<div class="table2">
+                <img src="~/Content/thumbnail_fan1.jpg" width="150" height="200" />
+                <table>
                     <tr>
                         <td style="background-color: #f0eae2 ;">Description</td>
                     </tr>
@@ -80,8 +80,7 @@
                     <tr>
                         <td>@item.Model_Year</td>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
-</div>
+                </table>
+            </div>*@
+    }
+}
