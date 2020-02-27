@@ -37,6 +37,7 @@ namespace WebGroupProject.Controllers
         }
         public ActionResult Page()
         {
+            TempData.Keep();
             var ProductVM = TempData["ProductVM"] as List<ProductViewModel>;
             return View(ProductVM);
         }
