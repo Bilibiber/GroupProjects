@@ -1,9 +1,13 @@
 ﻿using JooleDAL;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Services;
+using System.Web.Script.Serialization;
+using WebGroupProject.Models;
 
 namespace WebGroupProject
 {
@@ -25,15 +29,16 @@ namespace WebGroupProject
             return "Hello World";
         }
         [WebMethod]
-        public string[] getSubCategory(int CategoryID)
+        public JsonResult getSubCategory(int CategoryID)
         {
-            string[] SubcategoryName;
-
             List<tblSubCategory> tblSubs = db.tblSubCategories.ToList();
 
-            SubcategoryName = tblSubs.Where(x => x.CategoryID == CategoryID).Select(x => x.SubCategoryName).ToArray();
+            List<JasonTest> SubcategoryName = tblSubs.Where(x => x.CategoryID == CategoryID).Select(x => new JasonTest { 
+            SubcategoryID=x.SubCategoryID,
+            SubcategoryName=x.SubCategoryName
+            }).ToList();
 
-            return SubcategoryName;
+            return JsonConvert.SerializeObject(SubcategoryName);
         }
     }
 }
