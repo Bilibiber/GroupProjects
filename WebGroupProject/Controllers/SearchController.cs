@@ -29,11 +29,11 @@ namespace WebGroupProject.Controllers
         //    List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
         //    return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
         //}
-        public string GetSubCategory(int CategoryID)
+        public JsonResult GetSubCategory(int CategoryID)
         {
             WebService1 webService = new WebService1();
 
-            string [] SubCategoryName = webService.getSubCategory(CategoryID);
+            List<JasonTest> JsonResult = webService.getSubCategory(CategoryID);
 
             return JsonConvert.SerializeObject(SubCategoryName);
         }

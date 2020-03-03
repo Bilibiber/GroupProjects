@@ -29,7 +29,7 @@ namespace WebGroupProject
             return "Hello World";
         }
         [WebMethod]
-        public JsonResult getSubCategory(int CategoryID)
+        public List<JasonTest> getSubCategory(int CategoryID)
         {
             List<tblSubCategory> tblSubs = db.tblSubCategories.ToList();
 
@@ -38,7 +38,7 @@ namespace WebGroupProject
             SubcategoryName=x.SubCategoryName
             }).ToList();
 
-            return JsonConvert.SerializeObject(SubcategoryName);
+            return SubcategoryName;
         }
     }
 }
