@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Search";
 }
+
 <div class="LoginSection">
     <div>
         <img src="~/Content/Imgs/joole.png" alt="Joole Logo" width="400" height="200" />
@@ -15,9 +16,10 @@
                     @Html.DropDownList("CategoaryID", TempData["CategoryListName"] as SelectList, "Category", new { @class = "form-control dropdownColor", @name = "CategoaryID" })
                 }
             </div>
-            @*<div class="autocomplete">
+            @*<div class="form-group">
                 <input id="SubCategoaryID" type="text" name="SubCategoaryID" placeholder="Country" class="form-control bold">
-            </div>*@
+            </div>
+            <div id="match-list"></div>*@
             @Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })
             <div class="input-group-append">
                 <button type="submit" value="Submit" class="btns form-control"><i class="material-icons">search</i></button>
@@ -25,7 +27,11 @@
         </div>
     }
 </div>
-<script src="~/Scripts/jquery-3.4.1.js"></script>d
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" />
 <script>
     $(document).ready(function () {
         $("#CategoaryID").change(function () {
@@ -35,12 +41,13 @@
 
             $.get("/Search/GetSubCategory", { CategoryID: selectedID }, function (data) {
                 $("#SubCategoaryID").empty();
-                 $.each(data, function (index, row) {
-                     $("#SubCategoaryID").append("<option>" + row.SubCategoryName + "</option>")
-                     //$("#SubCategoaryID").text(row.SubCategoryName)
-                     console.log(row.SubCategoryName);
+                $.each(data, function (index, row) {
+                    $("#SubCategoaryID").append("<option value="' row.SubcategoryID'" + "> " + row.SubcategoryName + "</option > ")
+                    //$("#SubCategoaryID").text(row.SubCategoryName)
+                    console.log(row.SubcategoryName);
                 });
             });
         })
     });
+
 </script>
