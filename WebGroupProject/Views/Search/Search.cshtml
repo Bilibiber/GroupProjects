@@ -16,7 +16,7 @@
                 }
             </div>
             <div class="autocomplete">
-                <input id="myInput" type="text" name="myCategory" placeholder="Country" class="form-control bold">
+                <input id="SubCategoaryID" type="text" name="SubCategoaryID" placeholder="Country" class="form-control bold">
             </div>
             @*@Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })*@
             <div class="input-group-append">
@@ -31,12 +31,13 @@
         $("#CategoaryID").change(function () {
             var categoryList = document.getElementById("CategoaryID");
             var selectedID = categoryList.options[categoryList.selectedIndex].value;
-
-            var arr = new Array();
             console.log(selectedID);
 
-            $.get("/Search/GetSubCategory", { CategoryID: selectedID }, function (arr) {
-                console.log();
+            $.get("/Search/GetSubCategory", { CategoryID: selectedID }, function (data) {
+                $("#SubCategoaryID").empty();
+                 $.each(data, function (index, row) {
+                    $("#SubCategoaryID").append("<p>" + row.SubCategoryName + "</p>")
+                });
             });
         })
     });
