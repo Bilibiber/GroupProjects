@@ -11,7 +11,7 @@ namespace WebGroupProject.Controllers
     
     public class CompareController : Controller
     {
-        private NewDataBase DataBase = new NewDataBase();
+        private TeamAlphaGroupProjectsEntities DataBase = new TeamAlphaGroupProjectsEntities();
         // GET: Compare
         [HttpPost]
         public ActionResult Compare(List<int> data)

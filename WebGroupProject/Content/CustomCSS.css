@@ -1,9 +1,11 @@
 ﻿html {
     height: 100%;
 }
-.a{
-    color:black !important;
+
+.a {
+    color: black !important;
 }
+
 body {
     height: 100%;
     margin: 0;
@@ -11,46 +13,56 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.LoginSection{
+
+.LoginSection {
     padding-top: 50px;
-    padding-bottom:50px;
+    padding-bottom: 50px;
     text-align: center;
 }
+
 .navpadding {
-    padding-left:200px !important;
-    padding-right:200px !important;
+    padding-left: 200px !important;
+    padding-right: 200px !important;
     text-align: right;
-    display:block !important;
+    display: block !important;
 }
-.loginbtn{
+
+.loginbtn {
     background: #55c2ed;
     height: 30px !important;
-    font-size:small;
-    text-align:center;
+    font-size: small;
+    text-align: center;
 }
-.loginbtndiv{
-    padding-left:440px !important;
+
+.loginbtndiv {
+    padding-left: 440px !important;
 }
-.wordsPadding{
-    padding-top:5px;
-    padding-bottom:5px;
+
+.wordsPadding {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+
 .ImageSection {
-    width:100%;
+    width: 100%;
     height: 250px;
 }
+
 .inputSection {
     width: 100%;
     padding-left: 50px;
     padding-right: 50px;
 }
+
 .ImageRound {
     border-radius: 50%;
 }
-.dropdownColor{
+
+.dropdownColor {
     background-color: darkslateblue !important;
-    color : black !important;
+    color: black !important;
 }
+
 .btns {
     background-color: DodgerBlue !important; /* Blue background */
     border: none; /* Remove borders */
@@ -64,6 +76,7 @@ body {
     .btns:hover {
         background-color: RoyalBlue;
     }
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -85,9 +98,11 @@ body {
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
-.bold{
-   font-weight: bold !important;
+
+.bold {
+    font-weight: bold !important;
 }
+
 .navigation {
     width: 100%;
     text-align: center;
@@ -96,26 +111,56 @@ body {
     line-height: 120px;
     height: 120px;
 }
+
 .logo-img {
     position: absolute;
     padding-bottom: 20px;
 }
-.navblock{
+
+.navblock {
     display: inline-flex !important;
 }
-.boxsize{
-    height:35px !important;
-    width:45px !important;
+
+.boxsize {
+    height: 35px !important;
+    width: 45px !important;
     font-size: x-small;
 }
+
 .boxsize2 {
     height: 30px !important;
     width: 45px !important;
     font-size: x-small;
 }
+
 .paddingtop {
-  padding-top: 40px;
+    padding-top: 40px;
 }
+
 .boxpadding {
     padding: 5px 10px 5px 10px;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+    /*when hovering an item:*/
+    .autocomplete-items div:hover {
+        background-color: #e9e9e9;
+    }
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
 }

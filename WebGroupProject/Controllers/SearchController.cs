@@ -12,7 +12,7 @@ namespace WebGroupProject.Controllers
 {
     public class SearchController : Controller
     {
-        NewDataBase DataBase = new NewDataBase();
+        TeamAlphaGroupProjectsEntities DataBase = new TeamAlphaGroupProjectsEntities();
         // GET: Search
         [HttpGet]
         public ActionResult Search()
@@ -22,11 +22,17 @@ namespace WebGroupProject.Controllers
             TempData.Keep();
             return View();
         }
-        public JsonResult GetSubCategory(int CategoryID)
+        //public JsonResult GetSubCategory(int CategoryID)
+        //{
+        //    DataBase.Configuration.ProxyCreationEnabled = false;
+        //    List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
+        //    return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
+        //}
+        public string[] GetSubCategory(int CategoryID)
         {
-            DataBase.Configuration.ProxyCreationEnabled = false;
-            List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
-            return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
+            WebService1 webService = new WebService1();
+            string [] SubCategoryName = webService.getSubCategory(CategoryID);
+            return SubCategoryName;
         }
     }
 }

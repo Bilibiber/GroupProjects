@@ -14,6 +14,12 @@ namespace JooleDAL
     
     public partial class tblProduct
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblProduct()
+        {
+            this.tblProductsDetails = new HashSet<tblProductsDetail>();
+        }
+    
         public int ProductID { get; set; }
         public string Manufacturer { get; set; }
         public string ProductName { get; set; }
@@ -26,10 +32,8 @@ namespace JooleDAL
         public string Mounting_Location { get; set; }
         public Nullable<int> SubCategoryID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblProductsDetail> tblProductsDetails { get; set; }
         public virtual tblSubCategory tblSubCategory { get; set; }
-      
-        public virtual tblProductsDetal tblProductsDetals { get; set; }
-        
-        public virtual tblProductSeriesInfo tblProductSeriesInfoes { get; set; }
     }
 }

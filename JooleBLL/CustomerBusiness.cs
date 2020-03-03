@@ -20,7 +20,7 @@ namespace JooleBLL
 
         public string SignUp(string Email, string Password)
         {
-            NewDataBase Database = new NewDataBase();
+            TeamAlphaGroupProjectsEntities Database = new TeamAlphaGroupProjectsEntities();
             return "Fan Guo" + Email;
         }
     }

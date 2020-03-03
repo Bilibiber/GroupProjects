@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TeamAlphaGroupProjectsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="tblCategories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -38,7 +28,7 @@
           <Property Name="Mounting_Location" Type="nvarchar" MaxLength="150" />
           <Property Name="SubCategoryID" Type="int" />
         </EntityType>
-        <EntityType Name="tblProductsDetals">
+        <EntityType Name="tblProductsDetails">
           <Key>
             <PropertyRef Name="ProductsDetailsID" />
           </Key>
@@ -56,24 +46,6 @@
           <Property Name="MaxFanSpeed" Type="nchar" MaxLength="10" />
           <Property Name="MinFanSpeed" Type="nchar" MaxLength="10" />
           <Property Name="ProductID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tblProductSeriesInfo">
-          <Key>
-            <PropertyRef Name="ProductSeriesInfoID" />
-          </Key>
-          <Property Name="ProductSeriesInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Airfoils" Type="varchar" MaxLength="200" />
-          <Property Name="Arifoils_Finishes" Type="varchar" MaxLength="200" />
-          <Property Name="Hardware_Finishes" Type="varchar" MaxLength="200" />
-          <Property Name="Motor" Type="varchar" MaxLength="50" />
-          <Property Name="Energy_Efficiency" Type="varchar" MaxLength="200" />
-          <Property Name="Controls" Type="varchar" MaxLength="200" />
-          <Property Name="Onboard_Sensors" Type="varchar" MaxLength="200" />
-          <Property Name="Environment" Type="varchar" MaxLength="200" />
-          <Property Name="Accessories" Type="varchar" MaxLength="200" />
-          <Property Name="Patented" Type="varchar" MaxLength="50" />
-          <Property Name="Manufacturer_Origin" Type="varchar" MaxLength="50" />
-          <Property Name="ProductsID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblSubCategory">
           <Key>
@@ -106,25 +78,13 @@
         </Association>
         <Association Name="FK_tblProductsDetals_tblProducts">
           <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="1" />
-          <End Role="tblProductsDetals" Type="Self.tblProductsDetals" Multiplicity="*" />
+          <End Role="tblProductsDetails" Type="Self.tblProductsDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblProducts">
               <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="tblProductsDetals">
+            <Dependent Role="tblProductsDetails">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblProductSeriesInfo_tblProducts">
-          <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="1" />
-          <End Role="tblProductSeriesInfo" Type="Self.tblProductSeriesInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblProducts">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="tblProductSeriesInfo">
-              <PropertyRef Name="ProductsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -141,11 +101,9 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TeamAlphaGroupProjectsModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCategories" EntityType="Self.tblCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProducts" EntityType="Self.tblProducts" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblProductsDetals" EntityType="Self.tblProductsDetals" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblProductSeriesInfo" EntityType="Self.tblProductSeriesInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProductsDetails" EntityType="Self.tblProductsDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSubCategory" EntityType="Self.tblSubCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblProducts_tblSubCategory" Association="Self.FK_tblProducts_tblSubCategory">
@@ -154,11 +112,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_tblProductsDetals_tblProducts" Association="Self.FK_tblProductsDetals_tblProducts">
             <End Role="tblProducts" EntitySet="tblProducts" />
-            <End Role="tblProductsDetals" EntitySet="tblProductsDetals" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblProductSeriesInfo_tblProducts" Association="Self.FK_tblProductSeriesInfo_tblProducts">
-            <End Role="tblProducts" EntitySet="tblProducts" />
-            <End Role="tblProductSeriesInfo" EntitySet="tblProductSeriesInfo" />
+            <End Role="tblProductsDetails" EntitySet="tblProductsDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_tblSubCategory_tblCategories" Association="Self.FK_tblSubCategory_tblCategories">
             <End Role="tblCategories" EntitySet="tblCategories" />
@@ -169,23 +123,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TeamAlphaGroupProjectsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="tblCategory">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblSubCategories" Relationship="TeamAlphaGroupProjectsModel.FK_tblSubCategory_tblCategories" FromRole="tblCategory" ToRole="tblSubCategory" />
+          <NavigationProperty Name="tblSubCategories" Relationship="Self.FK_tblSubCategory_tblCategories" FromRole="tblCategories" ToRole="tblSubCategory" />
         </EntityType>
         <EntityType Name="tblProduct">
           <Key>
@@ -202,11 +146,10 @@
           <Property Name="Application" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Mounting_Location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="SubCategoryID" Type="Int32" />
-          <NavigationProperty Name="tblSubCategory" Relationship="Self.FK_tblProducts_tblSubCategory" FromRole="tblProducts" ToRole="tblSubCategory" />
-          <NavigationProperty Name="tblProductsDetals" Relationship="Self.FK_tblProductsDetals_tblProducts" FromRole="tblProducts" ToRole="tblProductsDetals" />
-          <NavigationProperty Name="tblProductSeriesInfoes" Relationship="Self.FK_tblProductSeriesInfo_tblProducts" FromRole="tblProducts" ToRole="tblProductSeriesInfo" />
+          <NavigationProperty Name="tblProductsDetails" Relationship="Self.FK_tblProductsDetals_tblProducts" FromRole="tblProducts" ToRole="tblProductsDetails" />
+          <NavigationProperty Name="tblSubCategory" Relationship="TeamAlphaGroupProjectsModel.FK_tblProducts_tblSubCategory" FromRole="tblProduct" ToRole="tblSubCategory" />
         </EntityType>
-        <EntityType Name="tblProductsDetal">
+        <EntityType Name="tblProductsDetail">
           <Key>
             <PropertyRef Name="ProductsDetailsID" />
           </Key>
@@ -224,26 +167,7 @@
           <Property Name="MaxFanSpeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="MinFanSpeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblProductsDetals_tblProducts" FromRole="tblProductsDetals" ToRole="tblProducts" />
-        </EntityType>
-        <EntityType Name="tblProductSeriesInfo">
-          <Key>
-            <PropertyRef Name="ProductSeriesInfoID" />
-          </Key>
-          <Property Name="ProductSeriesInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Airfoils" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Arifoils_Finishes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Hardware_Finishes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Motor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Energy_Efficiency" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Controls" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Onboard_Sensors" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Environment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Accessories" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Patented" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Manufacturer_Origin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProductsID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblProductSeriesInfo_tblProducts" FromRole="tblProductSeriesInfo" ToRole="tblProducts" />
+          <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblProductsDetals_tblProducts" FromRole="tblProductsDetails" ToRole="tblProducts" />
         </EntityType>
         <EntityType Name="tblSubCategory">
           <Key>
@@ -252,8 +176,8 @@
           <Property Name="SubCategoryID" Type="Int32" Nullable="false" />
           <Property Name="SubCategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblProducts" Relationship="Self.FK_tblProducts_tblSubCategory" FromRole="tblSubCategory" ToRole="tblProducts" />
-          <NavigationProperty Name="tblCategory" Relationship="TeamAlphaGroupProjectsModel.FK_tblSubCategory_tblCategories" FromRole="tblSubCategory" ToRole="tblCategory" />
+          <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblSubCategory_tblCategories" FromRole="tblSubCategory" ToRole="tblCategories" />
+          <NavigationProperty Name="tblProducts" Relationship="TeamAlphaGroupProjectsModel.FK_tblProducts_tblSubCategory" FromRole="tblSubCategory" ToRole="tblProduct" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -264,76 +188,58 @@
           <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK_tblProducts_tblSubCategory">
-          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="0..1" />
-          <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="*" />
+        <Association Name="FK_tblSubCategory_tblCategories">
+          <End Role="tblCategories" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="tblSubCategory">
-              <PropertyRef Name="SubCategoryID" />
+            <Principal Role="tblCategories">
+              <PropertyRef Name="CategoryID" />
             </Principal>
-            <Dependent Role="tblProducts">
-              <PropertyRef Name="SubCategoryID" />
+            <Dependent Role="tblSubCategory">
+              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblProductsDetals_tblProducts">
           <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="1" />
-          <End Role="tblProductsDetals" Type="Self.tblProductsDetal" Multiplicity="*" />
+          <End Role="tblProductsDetails" Type="Self.tblProductsDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblProducts">
               <PropertyRef Name="ProductID" />
             </Principal>
-            <Dependent Role="tblProductsDetals">
+            <Dependent Role="tblProductsDetails">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tblProductSeriesInfo_tblProducts">
-          <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="1" />
-          <End Role="tblProductSeriesInfo" Type="Self.tblProductSeriesInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblProducts">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="tblProductSeriesInfo">
-              <PropertyRef Name="ProductsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="NewDataBase" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+        <EntityContainer Name="TeamAlphaGroupProjectsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblCategories" EntityType="Self.tblCategory" />
           <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
-          <EntitySet Name="tblProductsDetals" EntityType="Self.tblProductsDetal" />
-          <EntitySet Name="tblProductSeriesInfoes" EntityType="Self.tblProductSeriesInfo" />
+          <EntitySet Name="tblProductsDetails" EntityType="Self.tblProductsDetail" />
           <EntitySet Name="tblSubCategories" EntityType="Self.tblSubCategory" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
-          <AssociationSet Name="FK_tblProducts_tblSubCategory" Association="Self.FK_tblProducts_tblSubCategory">
+          <AssociationSet Name="FK_tblSubCategory_tblCategories" Association="Self.FK_tblSubCategory_tblCategories">
+            <End Role="tblCategories" EntitySet="tblCategories" />
             <End Role="tblSubCategory" EntitySet="tblSubCategories" />
-            <End Role="tblProducts" EntitySet="tblProducts" />
           </AssociationSet>
           <AssociationSet Name="FK_tblProductsDetals_tblProducts" Association="Self.FK_tblProductsDetals_tblProducts">
             <End Role="tblProducts" EntitySet="tblProducts" />
-            <End Role="tblProductsDetals" EntitySet="tblProductsDetals" />
+            <End Role="tblProductsDetails" EntitySet="tblProductsDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_tblProductSeriesInfo_tblProducts" Association="Self.FK_tblProductSeriesInfo_tblProducts">
-            <End Role="tblProducts" EntitySet="tblProducts" />
-            <End Role="tblProductSeriesInfo" EntitySet="tblProductSeriesInfoes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblSubCategory_tblCategories" Association="TeamAlphaGroupProjectsModel.FK_tblSubCategory_tblCategories">
-            <End Role="tblCategory" EntitySet="tblCategories" />
+          <AssociationSet Name="FK_tblProducts_tblSubCategory" Association="TeamAlphaGroupProjectsModel.FK_tblProducts_tblSubCategory">
             <End Role="tblSubCategory" EntitySet="tblSubCategories" />
+            <End Role="tblProduct" EntitySet="tblProducts" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_tblSubCategory_tblCategories">
-          <End Type="TeamAlphaGroupProjectsModel.tblCategory" Role="tblCategory" Multiplicity="1" />
-          <End Type="TeamAlphaGroupProjectsModel.tblSubCategory" Role="tblSubCategory" Multiplicity="*" />
+        <Association Name="FK_tblProducts_tblSubCategory">
+          <End Type="TeamAlphaGroupProjectsModel.tblSubCategory" Role="tblSubCategory" Multiplicity="0..1" />
+          <End Type="TeamAlphaGroupProjectsModel.tblProduct" Role="tblProduct" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="tblCategory">
-              <PropertyRef Name="CategoryID" />
+            <Principal Role="tblSubCategory">
+              <PropertyRef Name="SubCategoryID" />
             </Principal>
-            <Dependent Role="tblSubCategory">
-              <PropertyRef Name="CategoryID" />
+            <Dependent Role="tblProduct">
+              <PropertyRef Name="SubCategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -342,18 +248,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TeamAlphaGroupProjectsModelStoreContainer" CdmEntityContainer="NewDataBase">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="TeamAlphaGroupProjectsModelStoreContainer" CdmEntityContainer="TeamAlphaGroupProjectsEntities">
           <EntitySetMapping Name="tblCategories">
             <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.tblCategory">
               <MappingFragment StoreEntitySet="tblCategories">
@@ -379,9 +274,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblProductsDetals">
-            <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.tblProductsDetal">
-              <MappingFragment StoreEntitySet="tblProductsDetals">
+          <EntitySetMapping Name="tblProductsDetails">
+            <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.tblProductsDetail">
+              <MappingFragment StoreEntitySet="tblProductsDetails">
                 <ScalarProperty Name="ProductsDetailsID" ColumnName="ProductsDetailsID" />
                 <ScalarProperty Name="AirFlow" ColumnName="AirFlow" />
                 <ScalarProperty Name="SoundAtMaxSpeed" ColumnName="SoundAtMaxSpeed" />
@@ -399,25 +294,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblProductSeriesInfoes">
-            <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.tblProductSeriesInfo">
-              <MappingFragment StoreEntitySet="tblProductSeriesInfo">
-                <ScalarProperty Name="ProductSeriesInfoID" ColumnName="ProductSeriesInfoID" />
-                <ScalarProperty Name="Airfoils" ColumnName="Airfoils" />
-                <ScalarProperty Name="Arifoils_Finishes" ColumnName="Arifoils_Finishes" />
-                <ScalarProperty Name="Hardware_Finishes" ColumnName="Hardware_Finishes" />
-                <ScalarProperty Name="Motor" ColumnName="Motor" />
-                <ScalarProperty Name="Energy_Efficiency" ColumnName="Energy_Efficiency" />
-                <ScalarProperty Name="Controls" ColumnName="Controls" />
-                <ScalarProperty Name="Onboard_Sensors" ColumnName="Onboard_Sensors" />
-                <ScalarProperty Name="Environment" ColumnName="Environment" />
-                <ScalarProperty Name="Accessories" ColumnName="Accessories" />
-                <ScalarProperty Name="Patented" ColumnName="Patented" />
-                <ScalarProperty Name="Manufacturer_Origin" ColumnName="Manufacturer_Origin" />
-                <ScalarProperty Name="ProductsID" ColumnName="ProductsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tblSubCategories">
             <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.tblSubCategory">
               <MappingFragment StoreEntitySet="tblSubCategory">
@@ -430,11 +306,11 @@
           <EntitySetMapping Name="tblUsers">
             <EntityTypeMapping TypeName="TeamAlphaGroupProjectsModel.tblUser">
               <MappingFragment StoreEntitySet="tblUser">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
-                </MappingFragment>
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>

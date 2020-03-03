@@ -1,8 +1,6 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "Search";
 }
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
 <div class="LoginSection">
     <div>
         <img src="~/Content/Imgs/joole.png" alt="Joole Logo" width="400" height="200" />
@@ -10,30 +8,35 @@
     <h3 class="wordsPadding">Building Product Selection Platform</h3>
     @using (Html.BeginForm("ProductResult", "Products", FormMethod.Post))
     {
-<div class="input-group mb-3 justify-content-center">
-    <div class="input-group-prepend">
-        @if (TempData["CategoryListName"] != null)
-        {
-            @Html.DropDownList("CategoaryID", TempData["CategoryListName"] as SelectList, "Category", new { @class = "form-control dropdownColor", @name = "CategoaryID" })
-        }
-    </div>
-    @Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })
-    <div class="input-group-append">
-        <button type="submit" value="Submit" class="btns form-control"><i class="material-icons">search</i></button>
-    </div>
-</div>
+        <div class="input-group mb-3 justify-content-center">
+            <div class="input-group-prepend">
+                @if (TempData["CategoryListName"] != null)
+                {
+                    @Html.DropDownList("CategoaryID", TempData["CategoryListName"] as SelectList, "Category", new { @class = "form-control dropdownColor", @name = "CategoaryID" })
+                }
+            </div>
+            <div class="autocomplete">
+                <input id="myInput" type="text" name="myCategory" placeholder="Country" class="form-control bold">
+            </div>
+            @*@Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })*@
+            <div class="input-group-append">
+                <button type="submit" value="Submit" class="btns form-control"><i class="material-icons">search</i></button>
+            </div>
+        </div>
     }
 </div>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
-
 <script>
     $(document).ready(function () {
         $("#CategoaryID").change(function () {
-            $.get("/Search/GetSubCategory", { CategoryID: $("#CategoaryID").val() }, function (data) {
-                $("#SubCategoaryID").empty();
-                $.each(data, function (index, row) {
-                    $("#SubCategoaryID").append("<option value='" + row.SubCategoryID + "'>" + row.SubCategoryName + "</option>")
-                });
+            var categoryList = document.getElementById("CategoaryID");
+            var selectedID = categoryList.options[categoryList.selectedIndex].value;
+
+            var arr = new Array();
+            console.log(selectedID);
+
+            $.get("/Search/GetSubCategory", { CategoryID: selectedID }, function (arr) {
+                console.log();
             });
         })
     });

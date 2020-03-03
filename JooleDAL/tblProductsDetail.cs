@@ -12,7 +12,7 @@ namespace JooleDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class tblProductsDetal
+    public partial class tblProductsDetail
     {
         public int ProductsDetailsID { get; set; }
         public string AirFlow { get; set; }

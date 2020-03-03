@@ -13,10 +13,10 @@ namespace JooleDAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NewDataBase : DbContext
+    public partial class TeamAlphaGroupProjectsEntities : DbContext
     {
-        public NewDataBase()
-            : base("name=NewDataBase")
+        public TeamAlphaGroupProjectsEntities()
+            : base("name=TeamAlphaGroupProjectsEntities")
         {
         }
     
@@ -25,11 +25,9 @@ namespace JooleDAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblCategory> tblCategories { get; set; }
         public virtual DbSet<tblProduct> tblProducts { get; set; }
-        public virtual DbSet<tblProductsDetal> tblProductsDetals { get; set; }
-        public virtual DbSet<tblProductSeriesInfo> tblProductSeriesInfoes { get; set; }
+        public virtual DbSet<tblProductsDetail> tblProductsDetails { get; set; }
         public virtual DbSet<tblSubCategory> tblSubCategories { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
     }
