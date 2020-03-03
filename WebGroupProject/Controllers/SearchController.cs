@@ -31,11 +31,12 @@ namespace WebGroupProject.Controllers
         //}
         public JsonResult GetSubCategory(int CategoryID)
         {
+            DataBase.Configuration.ProxyCreationEnabled = false;
             WebService1 webService = new WebService1();
 
             List<JasonTest> JsonResult = webService.getSubCategory(CategoryID);
 
-            return JsonConvert.SerializeObject(SubCategoryName);
+            return Json(JsonResult, JsonRequestBehavior.AllowGet);
         }
     }
 }

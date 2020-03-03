@@ -15,17 +15,17 @@
                     @Html.DropDownList("CategoaryID", TempData["CategoryListName"] as SelectList, "Category", new { @class = "form-control dropdownColor", @name = "CategoaryID" })
                 }
             </div>
-            <div class="autocomplete">
+            @*<div class="autocomplete">
                 <input id="SubCategoaryID" type="text" name="SubCategoaryID" placeholder="Country" class="form-control bold">
-            </div>
-            @*@Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })*@
+            </div>*@
+            @Html.DropDownList("SubCategoaryID", new SelectList(" "), "Search...", new { @class = "form-control bold", @name = "SubCategoaryID" })
             <div class="input-group-append">
                 <button type="submit" value="Submit" class="btns form-control"><i class="material-icons">search</i></button>
             </div>
         </div>
     }
 </div>
-<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>d
 <script>
     $(document).ready(function () {
         $("#CategoaryID").change(function () {
@@ -36,7 +36,9 @@
             $.get("/Search/GetSubCategory", { CategoryID: selectedID }, function (data) {
                 $("#SubCategoaryID").empty();
                  $.each(data, function (index, row) {
-                    $("#SubCategoaryID").append("<p>" + row.SubCategoryName + "</p>")
+                     $("#SubCategoaryID").append("<option>" + row.SubCategoryName + "</option>")
+                     //$("#SubCategoaryID").text(row.SubCategoryName)
+                     console.log(row.SubCategoryName);
                 });
             });
         })
