@@ -12,8 +12,14 @@ namespace JooleDAL
     using System;
     using System.Collections.Generic;
     
-    public partial class tblProductsDetal
+    public partial class tblProductsDetail
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblProductsDetail()
+        {
+            this.tblProducts = new HashSet<tblProduct>();
+        }
+    
         public int ProductsDetailsID { get; set; }
         public string AirFlow { get; set; }
         public string SoundAtMaxSpeed { get; set; }
@@ -29,6 +35,7 @@ namespace JooleDAL
         public string MinFanSpeed { get; set; }
         public int ProductID { get; set; }
     
-        public virtual tblProduct tblProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblProduct> tblProducts { get; set; }
     }
 }

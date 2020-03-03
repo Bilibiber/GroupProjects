@@ -15,7 +15,7 @@ namespace WebGroupProject.Controllers
 {
     public class LoginController : Controller
     {
-        NewDataBase db = new NewDataBase();
+        TeamAlphaGroupProjectsEntities db = new TeamAlphaGroupProjectsEntities();
         // GET: Login
         [HttpGet]
         public ActionResult Index()

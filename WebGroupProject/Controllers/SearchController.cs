@@ -12,7 +12,7 @@ namespace WebGroupProject.Controllers
 {
     public class SearchController : Controller
     {
-        NewDataBase DataBase = new NewDataBase();
+        TeamAlphaGroupProjectsEntities DataBase = new TeamAlphaGroupProjectsEntities();
         // GET: Search
         [HttpGet]
         public ActionResult Search()

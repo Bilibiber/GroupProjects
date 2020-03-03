@@ -24,8 +24,8 @@ namespace JooleDAL
         public string SubCategoryName { get; set; }
         public int CategoryID { get; set; }
     
+        public virtual tblCategory tblCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblProduct> tblProducts { get; set; }
-        public virtual tblCategory tblCategory { get; set; }
     }
 }

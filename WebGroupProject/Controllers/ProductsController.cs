@@ -8,7 +8,7 @@ namespace WebGroupProject.Controllers
 {
     public class ProductsController : Controller
     {
-        private NewDataBase DataBase = new NewDataBase();
+        private TeamAlphaGroupProjectsEntities DataBase = new TeamAlphaGroupProjectsEntities();
 
         [HttpPost]
         public ActionResult ProductResult(int SubCategoaryID)
@@ -22,6 +22,7 @@ namespace WebGroupProject.Controllers
                 ProductName = x.ProductName,
                 Model = x.Model,
                 ProductID = x.ProductID
+                
             }).ToList();
 
             return View(VMlist);

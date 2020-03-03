@@ -25,11 +25,9 @@ namespace JooleDAL
         public string Application { get; set; }
         public string Mounting_Location { get; set; }
         public Nullable<int> SubCategoryID { get; set; }
+        public Nullable<int> ProductsDetailsID { get; set; }
     
         public virtual tblSubCategory tblSubCategory { get; set; }
-      
-        public virtual tblProductsDetal tblProductsDetals { get; set; }
-        
-        public virtual tblProductSeriesInfo tblProductSeriesInfoes { get; set; }
+        public virtual tblProductsDetail tblProductsDetail { get; set; }
     }
 }
