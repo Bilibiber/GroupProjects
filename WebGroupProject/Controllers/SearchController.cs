@@ -1,4 +1,5 @@
 ﻿using JooleDAL;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,11 +29,13 @@ namespace WebGroupProject.Controllers
         //    List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
         //    return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
         //}
-        public string[] GetSubCategory(int CategoryID)
+        public string GetSubCategory(int CategoryID)
         {
             WebService1 webService = new WebService1();
+
             string [] SubCategoryName = webService.getSubCategory(CategoryID);
-            return SubCategoryName;
+
+            return JsonConvert.SerializeObject(SubCategoryName);
         }
     }
 }
