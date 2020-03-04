@@ -28,5 +28,6 @@ namespace WebGroupProject.Controllers
             List<tblSubCategory> subCategoriesList = DataBase.tblSubCategories.Where(x => x.CategoryID == CategoryID).ToList();
             return Json(subCategoriesList, JsonRequestBehavior.AllowGet);
         }
+      
     }
 }

@@ -44,8 +44,8 @@
           <Property Name="MinVoltage" Type="nchar" MaxLength="10" />
           <Property Name="MaxHeight" Type="nchar" MaxLength="10" />
           <Property Name="MinHeight" Type="nchar" MaxLength="10" />
-          <Property Name="MaxFanSpeed" Type="nchar" MaxLength="10" />
-          <Property Name="MinFanSpeed" Type="nchar" MaxLength="10" />
+          <Property Name="MaxFanSpeed" Type="int" />
+          <Property Name="MinFanSpeed" Type="int" />
         </EntityType>
         <EntityType Name="tblSubCategory">
           <Key>
@@ -165,9 +165,8 @@
           <Property Name="MinVoltage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="MaxHeight" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="MinHeight" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MaxFanSpeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MinFanSpeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="MaxFanSpeed" Type="Int32" />
+          <Property Name="MinFanSpeed" Type="Int32" />
           <NavigationProperty Name="tblProducts" Relationship="TeamAlphaGroupProjectsModel.FK_tblProducts_tblProductsDetails" FromRole="tblProductsDetail" ToRole="tblProduct" />
         </EntityType>
         <EntityType Name="tblSubCategory">

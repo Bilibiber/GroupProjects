@@ -60,8 +60,8 @@
                     <div class="input-group-prepend pr-2">
                         <input type="text" class="boxsize form-control" name="SoundMin" min="5" max="30" value="5" oninput="this.form.SoundRangeMin.value=this.value" />
                     </div>
-                    <input type="range" name="SoundRangeMin" min="5" max="30" value="5" oninput="this.form.SoundMin.value=this.value" />
-                    <input type="range" name="SoundRangeMax" min="30" max="60" value="30" oninput="this.form.SoundMax.value=this.value" />
+                    <input type="range" name="SoundRangeMin" min="10" max="30" value="10" oninput="this.form.SoundMin.value=this.value" onchange="post(this.value)" />
+                    <input type="range" name="SoundRangeMax" min="60" max="80" value="60" oninput="this.form.SoundMax.value=this.value" />
                     <div class="input-group-append pl-2">
                         <input type="text" class="boxsize form-control" name="SoundMax" min="30" max="60" value="30" oninput="this.form.SoundRangeMax.value=this.value" />
                     </div>
@@ -133,5 +133,9 @@
             $.post('/Compare/Compare', $.param({ data: arr }, true), function (data) { });
             window.location.href ='/Compare/Page/'
         }
+    }
+    function post(range) {
+        $("#st-box").remove();
+        $.post('/Products/ProductResultFilter', $.param({ data: range }, true), function (data) { });
     }
 </script>

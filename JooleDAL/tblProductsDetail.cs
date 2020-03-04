@@ -31,9 +31,8 @@ namespace JooleDAL
         public string MinVoltage { get; set; }
         public string MaxHeight { get; set; }
         public string MinHeight { get; set; }
-        public string MaxFanSpeed { get; set; }
-        public string MinFanSpeed { get; set; }
-        public int ProductID { get; set; }
+        public Nullable<int> MaxFanSpeed { get; set; }
+        public Nullable<int> MinFanSpeed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblProduct> tblProducts { get; set; }

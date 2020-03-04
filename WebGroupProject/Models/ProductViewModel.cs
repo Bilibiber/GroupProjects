@@ -18,9 +18,9 @@ namespace WebGroupProject.Models
         public string Use_Type { get; set; }
         public string Application { get; set; }
         public string Mounting_Location { get; set; }
-        public string MinAirFlow { get; set; }
+        public Nullable<int> MinAirFlow { get; set; }
         public Nullable<int> SubCategoryID { get; set; }
 
-        public string MaxAirfow { get; set; }
+        public Nullable<int> MaxAirfow { get; set; }
     }
 }
