@@ -29,13 +29,14 @@ namespace WebGroupProject
             return "Hello World";
         }
         [WebMethod]
-        public List<JasonTest> getSubCategory(int CategoryID)
+        public List<JasonTests> getSubCategory(int CategoryID)
         {
             List<tblSubCategory> tblSubs = db.tblSubCategories.ToList();
 
-            List<JasonTest> SubcategoryName = tblSubs.Where(x => x.CategoryID == CategoryID).Select(x => new JasonTest { 
-            SubcategoryID=x.SubCategoryID,
-            SubcategoryName=x.SubCategoryName
+            List<JasonTests> SubcategoryName = tblSubs.Where(x => x.CategoryID == CategoryID).Select(x => new JasonTests
+            {
+                SubcategoryID = x.SubCategoryID,
+                SubcategoryName = x.SubCategoryName
             }).ToList();
 
             return SubcategoryName;

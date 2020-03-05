@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebGroupProject.Models;
+using WebGroupProject.WCFFFFF2;
 
 namespace WebGroupProject.Controllers
 {
@@ -32,11 +33,12 @@ namespace WebGroupProject.Controllers
         public JsonResult GetSubCategory(int CategoryID)
         {
             DataBase.Configuration.ProxyCreationEnabled = false;
-            WebService1 webService = new WebService1();
 
-            List<JasonTest> JsonResult = webService.getSubCategory(CategoryID);
+           WebService1 webService = new WebService1();
 
-            return Json(JsonResult, JsonRequestBehavior.AllowGet);
+            var  tests = webService.getSubCategory(CategoryID);
+
+            return Json(tests, JsonRequestBehavior.AllowGet);
         }
     }
 }

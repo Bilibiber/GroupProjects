@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebGroupProject.Models
 {
-    public class JasonTest
+    public class JasonTests
     {
         public int SubcategoryID { get; set; }
 
